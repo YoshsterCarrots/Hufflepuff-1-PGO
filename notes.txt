@@ -1,0 +1,2 @@
+Compile with -fsanitize=address and -fsanitize=undefined and -g during testing
+Also use safe c++ library(?)
