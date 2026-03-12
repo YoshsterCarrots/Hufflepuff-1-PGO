@@ -1,0 +1,26 @@
+https://github.com/YoshsterCarrots/Hufflepuff-1-PGO.git
+
+on the first word it reads the word; if the word doesn't exist, it will add a node for it
+after the first word it will branch off into possibilities
+
+whenever a word is an end word, add to its endword count; 
+- the generator rolls a chance that the word ends the title with incrementing chance 
+  every time a new word is added
+- starts with negative weight or maybe starts at word 3 or something
+- every timesEnd count adds to the chance the title will be ended that is weighted
+
+vector<Word> words = [];
+
+newLine = false;
+if (streamParse == '\n') newLine = true;
+
+//within adding word loop
+if (newLine) //add new word to start words if it isn't already (if we end up doing this)
+
+struct Word {
+	std::string name = "";
+	int vecIndex = -1;
+	int timesStart = 0;
+	int timesEnd = 0;
+	std::map<int,int> nextIndexes;
+}
