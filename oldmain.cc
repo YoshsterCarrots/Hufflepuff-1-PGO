@@ -2,30 +2,12 @@
 #include <vector>         // IWYU pragma: keep
 #include <iostream>       // IWYU pragma: keep
 #include <fstream>        // IWYU pragma: keep
-#include <unordered_map>
 using namespace std;
 
 
 int main() {
 	ifstream videos("USvideos.csv");
-	ofstream outputFile("compiledVideos.txt");
-
-	outputFile.close();
-}
-
-
-
-//TODO: 
-// - accomodate for all things we will record:
-//   - 1. title, 2. trend date, 3. channel, 4. publish date/time, 5. views,
-//     6. likes, 7. dislikes, 8. comment count, 9. tags
-//
-//     and most importantly 10. availability - if the video's unavailable, don't log it.
-//   - tags will take some extra parsing because of the intermittent "|" characters; they can also be within a tag itself,
-//   so be sure to account for that with isInQuote.
-
-
-void parseVideos(ifstream& videos, ofstream& outputFile) {
+	ofstream outputFile("titles.txt");
 	string currLine;
 
 	getline(videos, currLine);
@@ -49,4 +31,5 @@ void parseVideos(ifstream& videos, ofstream& outputFile) {
 		outputFile << '\n';
 	}
 
+	outputFile.close();
 }
