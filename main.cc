@@ -76,30 +76,23 @@ void parseVideos(ifstream& videos, ofstream& outputFile) {
 					currTag = "";
 				}
 				commaCount++;
-				outputFile << ' ';
 			}
 			else if (commaCount == 0) {
-				outputFile << c;
 				currID += c;
 			}
 			else if (commaCount == 1) {
-				outputFile << c;
 				currTrendDate += c;
 			}
 			else if (commaCount == 2) {
-				outputFile << c;
 				currTitle += c;
 			}
 			else if (commaCount == 3) {
-				outputFile << c;
 				currChannel += c;
 			}
 			else if (commaCount == 5) {
-				outputFile << c;
 				currPubTime += c;
 			}
 			else if (commaCount == 6) {
-				outputFile << c;
 				if (!isInQuote && c == '|') {
 					currTagList.push_back(currTag);
 					currTag = "";
@@ -109,24 +102,24 @@ void parseVideos(ifstream& videos, ofstream& outputFile) {
 				}
 			}
 			else if (commaCount == 7) {
-				outputFile << c;
 				currViews += c;
 			}
 			else if (commaCount == 8) {
-				outputFile << c;
 				currLikes += c;
 			}
 			else if (commaCount == 9) {
-				outputFile << c;
 				currDislikes += c;
 			}
 			else if (commaCount == 10) {
-				outputFile << c;
 				currCommCount += c;
 			}
 		}
-		//Video tempVideo(currTitle, currChannel, currTrendDate, currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount), 0);
+		outputFile << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
+		for (string s : currTagList) {
+			outputFile << s << '|' ;
+		}
+		outputFile << ' ' << stoi(currViews) << ' ' << stoi(currLikes) << ' ' << stoi(currDislikes) << ' ' << stoi(currCommCount);
 		outputFile << '\n';
+		//Video tempVideo(currTitle, currChannel, currTrendDate, currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount), 0);
 	}
-
 }
