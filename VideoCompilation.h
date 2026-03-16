@@ -57,10 +57,15 @@ struct Compilation {
 
 	void insertVideo(Video newVideo, char letter, const std::string &newVidTitle, const std::vector<std::string> &newTags) {
 		//check if already exists
-		
+		int newTrendingTimes = 1;
 		[[likely]]
 		if (compilation.contains(letter)) {
+			if (compilation.at(letter).contains(newVidTitle)) {
+				newTrendingTimes = compilation.at(letter).at(newVidTitle).timesTrending + 1;
+			}
 			compilation.at(letter).insert_or_assign(newVidTitle, newVideo);
+			compilation.at(letter).at(newVidTitle).timesTrending = newTrendingTimes;
+			
 		}
 		else {
 			compilation.insert({letter,{}});
@@ -87,10 +92,19 @@ struct Compilation {
 
 		//videos
 		for (const auto& [letter, letteredMap] : compilation) {
-			//[[unlikely]]
 			for (const auto& [title, video] : letteredMap) {
-				if (videosFinal.contains(title) && video.title < videosFinal.at(title).title) continue;
-				else videosFinal.insert_or_assign(title, video);
+				if (videosFinal.contains(title)) {
+					if (video.title < videosFinal.at(title).title)
+						videosFinal.at(title).timesTrending++;
+					else {
+						int newTimesTrending = videosFinal.at(title).timesTrending + 1;
+						videosFinal.insert_or_assign(title, video);
+						videosFinal.at(title).timesTrending = newTimesTrending;
+					}
+				}
+				else {
+					videosFinal.insert_or_assign(title, video);
+				}
 			}
 		}
 
