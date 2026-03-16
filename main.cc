@@ -114,8 +114,9 @@ void parseVideos(ifstream& videos, ofstream& outputFile) {
 				currCommCount += c;
 			}
 		}
-		outputFile << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
-		for (string s : currTagList) {
+		char titleFirstLetter = tolower(currTitle.at(0));
+		outputFile << titleFirstLetter << ' ' << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
+		for (const string& s : currTagList) {
 			outputFile << s << '|' ;
 		}
 		outputFile << ' ' << stoi(currViews) << ' ' << stoi(currLikes) << ' ' << stoi(currDislikes) << ' ' << stoi(currCommCount);
