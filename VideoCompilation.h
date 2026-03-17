@@ -32,7 +32,7 @@ struct Video {
 		return this->trendingDate < other.trendingDate;
 	}
 
-	Video(std::string newTitle, std::string newChannel, std::string newTrendingDate, std::string newPublishDate, std::string newVideoID, int newViews, int newLikes, int newDislikes, int newComments) {
+	Video(const std::string &newTitle, const std::string &newChannel, const std::string &newTrendingDate, const std::string &newPublishDate, const std::string &newVideoID, int newViews, int newLikes, int newDislikes, int newComments) {
 		title = newTitle;
 		channel = newChannel;
 		trendingDate = newTrendingDate;
