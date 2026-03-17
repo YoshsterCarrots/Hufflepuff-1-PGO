@@ -16,4 +16,4 @@ Video.o: Video.cc Video.h
 	g++ $(CCFLAGS) -c Video.h Video.cc
 
 clean:
-	rm -f a.out core *.o compiledVideos.txt
+	rm -f a.out core *.o *.gcda *.gno *.gcov *.gch compiledVideos.txt
