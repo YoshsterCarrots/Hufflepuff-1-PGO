@@ -2,9 +2,10 @@
 #include <unordered_map>  // IWYU pragma: keep
 #include <map>			  // IWYU pragma: keep
 #include <vector>		  // IWYU pragma: keep
-//#include <unordered_set>  // IWYU pragma: keep
+#include <unordered_set>  // IWYU pragma: keep
+#include <set>			  // IWYU pragma: keep
 #include <iostream>       // IWYU pragma: keep
-
+#include <algorithm>	  // IWYU pragma: keep
 
 enum Nationality {
 	US,
@@ -75,12 +76,8 @@ struct Compilation {
 		//add tags
 		
 		for (const std::string &tag : newTags) {
-			if (tags.contains(tag)) {
-				tags.at(tag)++;
-			}
-			else {
-				tags.insert({tag, 1});
-			}
+			if (tags.contains(tag)) tags.at(tag)++;
+			else tags.insert({tag, 1});
 		}
 
 		return;
@@ -88,7 +85,7 @@ struct Compilation {
 
 
 
-	void compile(std::map<std::string,Video>& videosFinal, std::map<std::string, int>& tagsFinal) { //one of the last functions to implement
+	void compile(std::unordered_map<std::string, Video> &videosFinal, std::unordered_map<std::string, int> &tagsFinal) { //one of the last functions to implement
 
 		//videos
 		for (const auto& [letter, letteredMap] : compilation) {
@@ -110,11 +107,52 @@ struct Compilation {
 
 		//tags
 		for (const auto& [tag, count] : tags) {
-				if (tagsFinal.contains(tag)) {
-					tagsFinal.at(tag) += count;
-				}
-				else tagsFinal.insert({tag, count});
+			if (tagsFinal.contains(tag)) tagsFinal.at(tag) += count;
+			else tagsFinal.insert({tag, count});
 		}
 	}
 };
 
+bool viewsCompare(const Video &left, const Video &right) {
+	return left.views < right.views;
+}
+
+bool likesCompare(const Video &left, const Video &right) {
+	return left.likes < right.likes;
+}
+
+bool dislikesCompare(const Video &left, const Video &right) {
+	return left.dislikes < right.dislikes;
+}
+
+bool trendingCompare(const Video &left, const Video &right) {
+	return left.timesTrending < right.timesTrending;
+}
+
+bool tagsCompare(const std::pair<std::string, int> &left, const std::pair<std::string, int> &right) {
+	return left.second > right.second;
+}
+
+struct SortedCompilation {
+	std::vector<Video> sortedVideos = {};
+	std::vector<std::pair<std::string, int>> sortedTags = {};
+
+	SortedCompilation(const std::unordered_map<std::string, Video> &newVideos, const std::unordered_map<std::string, int> &newTags) {
+		sortedVideos.reserve(newVideos.size());
+		for (const auto& [title, vid] : newVideos) {
+			sortedVideos.emplace_back(vid);
+		}
+		std::sort(sortedVideos.begin(), sortedVideos.end(), viewsCompare);
+		//tags
+		sortedVideos.reserve(newTags.size());
+		for (const auto& [tag, count] : newTags) {
+			sortedTags.emplace_back(tag, count);
+		}
+		std::sort(sortedTags.begin(), sortedTags.end(), tagsCompare);
+
+	}
+
+	
+	
+
+};
