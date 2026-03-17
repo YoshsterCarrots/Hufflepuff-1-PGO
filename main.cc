@@ -4,7 +4,7 @@
 #include <iostream>       // IWYU pragma: keep
 #include <fstream>        // IWYU pragma: keep
 #include <unordered_map>  // IWYU pragma: keep
-#include "VideoCompilation.h" //IWYU pragma: keep
+#include "SortedCompilation.h" //IWYU pragma: keep
 using namespace std;
 
 void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
