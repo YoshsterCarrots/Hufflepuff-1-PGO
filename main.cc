@@ -1,4 +1,5 @@
 #include "/public/read.h" // IWYU pragma: keep
+#include <string>
 #include <vector>         // IWYU pragma: keep
 #include <iostream>       // IWYU pragma: keep
 #include <fstream>        // IWYU pragma: keep
@@ -13,17 +14,28 @@ string printVideoData(const Video& video);
 int main() {
 	ifstream videos("USvideos.csv");
 	ofstream outputFile("compiledVideos.txt");
+
+	unordered_map<string, Video> allVideos;
+	unordered_map<string, int> allTags;
 	
 	Compilation US_Comp(US); 
 	parseVideos(videos, outputFile, US_Comp);
+	US_Comp.compile(allVideos, allTags);
+	US_Comp = Compilation (US);
 
 	videos = ifstream ("CAvideos.csv");
 	Compilation CA_Comp(CA);
 	parseVideos(videos, outputFile, CA_Comp);
+	CA_Comp.compile(allVideos, allTags);
+	CA_Comp = Compilation (CA);
 
 	videos = ifstream ("GBvideos.csv");
 	Compilation GB_Comp(GB);
 	parseVideos(videos, outputFile, GB_Comp);
+	GB_Comp.compile(allVideos, allTags);
+	GB_Comp = Compilation (GB);
+	
+	SortedCompilation Full_Comp(allVideos, allTags);
 
 	outputFile.close();
 }
@@ -141,5 +153,5 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 }
 
 string printVideoData(const Video& video) {
-	return "Title: " + video.title + " | Channel: " + video.channel + " | Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + " | Upload Date: " + video.publishDate + " | URL: https://www.youtube.com/watch?v=" + video.videoID + " | Earliest Trending Date: " + video.trendingDate + " | Times Trending: " + to_string(video.timesTrending);
+	return video.title + " | " + video.channel + "\n    Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n    Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + video.trendingDate + " | Times Trending: " + to_string(video.timesTrending) + "\n    URL: https://www.youtube.com/watch?v=" + video.videoID;
 }
