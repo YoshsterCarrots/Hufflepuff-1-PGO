@@ -141,6 +141,5 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 }
 
 string printVideoData(const Video& video) {
-	//return video.title + " | " + video.channel + " | " + video.views + " | " + video.likes + " | " + video.dislikes + " | " + video.comments + " | " + video.publishDate + " | https://www.youtube.com/watch?v=" + video.videoID + " | " + video.trendingDate + " | " + video.timesTrending;
-	return "Title: " video.title + "\nChannel: " + video.channel + "\nViews: " + video.views + "\nLikes: " + video.likes + "\nDislikes: " + video.dislikes + "\nComments: " + video.comments + "\nUpload Date: " + video.publishDate + "\nURL: https://www.youtube.com/watch?v=" + video.videoID + "\nEarliest Trending Date: " + video.trendingDate + "\nTimes Trending: " + video.timesTrending + '\n';
+	return "Title: " + video.title + " | Channel: " + video.channel + " | Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + " | Upload Date: " + video.publishDate + " | URL: https://www.youtube.com/watch?v=" + video.videoID + " | Earliest Trending Date: " + video.trendingDate + " | Times Trending: " + to_string(video.timesTrending);
 }
