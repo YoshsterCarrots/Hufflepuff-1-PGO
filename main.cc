@@ -8,6 +8,8 @@ using namespace std;
 
 void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
 
+string printVideoData(const Video& video);
+
 int main() {
 	ifstream videos("USvideos.csv");
 	ofstream outputFile("compiledVideos.txt");
@@ -136,4 +138,9 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		Video tempVideo(currTitle, currChannel, currTrendDate, currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
 		comp.insertVideo(tempVideo, titleFirstLetter, currTitle, currTagList);
 	}
+}
+
+string printVideoData(const Video& video) {
+	//return video.title + " | " + video.channel + " | " + video.views + " | " + video.likes + " | " + video.dislikes + " | " + video.comments + " | " + video.publishDate + " | https://www.youtube.com/watch?v=" + video.videoID + " | " + video.trendingDate + " | " + video.timesTrending;
+	return "Title: " video.title + "\nChannel: " + video.channel + "\nViews: " + video.views + "\nLikes: " + video.likes + "\nDislikes: " + video.dislikes + "\nComments: " + video.comments + "\nUpload Date: " + video.publishDate + "\nURL: https://www.youtube.com/watch?v=" + video.videoID + "\nEarliest Trending Date: " + video.trendingDate + "\nTimes Trending: " + video.timesTrending + '\n';
 }
