@@ -40,15 +40,16 @@ void Compilation::insertVideo(Video newVideo, char letter, const std::string &ne
 
 
 void Compilation::compile(std::unordered_map<std::string, Video> &videosFinal, std::unordered_map<std::string, int> &tagsFinal) { //one of the last functions to implement
-
+	bool repeat = false;
 	//videos
 	for (const auto& [letter, letteredMap] : compilation) {
 		for (const auto& [title, video] : letteredMap) {
 			if (videosFinal.contains(title)) {
-				if (video.title < videosFinal.at(title).title)
-					videosFinal.at(title).timesTrending++;
+				repeat = true;
+				if (video.trendingDate < videosFinal.at(title).trendingDate) 
+					videosFinal.at(title).timesTrending += video.timesTrending;
 				else {
-					int newTimesTrending = videosFinal.at(title).timesTrending + 1;
+					int newTimesTrending = videosFinal.at(title).timesTrending += video.timesTrending;
 					videosFinal.insert_or_assign(title, video);
 					videosFinal.at(title).timesTrending = newTimesTrending;
 				}
@@ -60,8 +61,10 @@ void Compilation::compile(std::unordered_map<std::string, Video> &videosFinal, s
 	}
 
 	//tags
-	for (const auto& [tag, count] : tags) {
-		if (tagsFinal.contains(tag)) tagsFinal.at(tag) += count;
-		else tagsFinal.insert({tag, count});
+	if (!repeat) {
+		for (const auto& [tag, count] : tags) {
+			if (tagsFinal.contains(tag)) tagsFinal.at(tag) += count;
+			else tagsFinal.insert({tag, count});
+		}
 	}
 }
