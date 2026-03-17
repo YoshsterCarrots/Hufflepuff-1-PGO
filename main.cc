@@ -1,9 +1,9 @@
 #include "/public/read.h" // IWYU pragma: keep
-#include <string>
+#include <string>         // IWYU pragma: keep
 #include <vector>         // IWYU pragma: keep
 #include <iostream>       // IWYU pragma: keep
 #include <fstream>        // IWYU pragma: keep
-#include <unordered_map>
+#include <unordered_map>  // IWYU pragma: keep
 #include "VideoCompilation.h" //IWYU pragma: keep
 using namespace std;
 
@@ -36,6 +36,10 @@ int main() {
 	GB_Comp = Compilation (GB);
 	
 	SortedCompilation Full_Comp(allVideos, allTags);
+	sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), likesCompare);
+	for (const Video& vid : Full_Comp.sortedVideos) {
+		outputFile << printVideoData(vid) << endl;
+	}
 
 	outputFile.close();
 }

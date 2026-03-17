@@ -39,6 +39,7 @@ struct Video {
 		trendingDate = newTrendingDate;
 		publishDate = newPublishDate;
 		videoID = newVideoID;
+		views = newViews;
 		likes = newLikes;
 		dislikes = newDislikes;
 		comments = newComments;
@@ -114,19 +115,19 @@ struct Compilation {
 };
 
 bool viewsCompare(const Video &left, const Video &right) {
-	return left.views < right.views;
+	return left.views > right.views;
 }
 
 bool likesCompare(const Video &left, const Video &right) {
-	return left.likes < right.likes;
+	return left.likes > right.likes;
 }
 
 bool dislikesCompare(const Video &left, const Video &right) {
-	return left.dislikes < right.dislikes;
+	return left.dislikes > right.dislikes;
 }
 
 bool trendingCompare(const Video &left, const Video &right) {
-	return left.timesTrending < right.timesTrending;
+	return left.timesTrending > right.timesTrending;
 }
 
 bool tagsCompare(const std::pair<std::string, int> &left, const std::pair<std::string, int> &right) {
