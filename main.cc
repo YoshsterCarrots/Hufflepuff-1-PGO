@@ -3,15 +3,25 @@
 #include <iostream>       // IWYU pragma: keep
 #include <fstream>        // IWYU pragma: keep
 #include <unordered_map>
+#include "VideoCompilation.h" //IWYU pragma: keep
 using namespace std;
 
-void parseVideos(ifstream& videos, ofstream& outputFile);
+void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
 
 int main() {
 	ifstream videos("USvideos.csv");
 	ofstream outputFile("compiledVideos.txt");
 	
-	parseVideos(videos, outputFile);
+	Compilation US_Comp(US); 
+	parseVideos(videos, outputFile, US_Comp);
+
+	videos = ifstream ("CAvideos.csv");
+	Compilation CA_Comp(CA);
+	parseVideos(videos, outputFile, CA_Comp);
+
+	videos = ifstream ("GBvideos.csv");
+	Compilation GB_Comp(GB);
+	parseVideos(videos, outputFile, GB_Comp);
 
 	outputFile.close();
 }
@@ -28,7 +38,7 @@ int main() {
 //   so be sure to account for that with isInQuote.
 
 
-void parseVideos(ifstream& videos, ofstream& outputFile) {
+void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 	string currLine;
 
 	getline(videos, currLine);
@@ -115,12 +125,15 @@ void parseVideos(ifstream& videos, ofstream& outputFile) {
 			}
 		}
 		char titleFirstLetter = tolower(currTitle.at(0));
+		/*
 		outputFile << titleFirstLetter << ' ' << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
 		for (const string& s : currTagList) {
 			outputFile << s << '|' ;
 		}
 		outputFile << ' ' << stoi(currViews) << ' ' << stoi(currLikes) << ' ' << stoi(currDislikes) << ' ' << stoi(currCommCount);
 		outputFile << '\n';
-		//Video tempVideo(currTitle, currChannel, currTrendDate, currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount), 0);
+		*/
+		Video tempVideo(currTitle, currChannel, currTrendDate, currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
+		comp.insertVideo(tempVideo, titleFirstLetter, currTitle, currTagList);
 	}
 }
