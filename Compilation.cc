@@ -6,16 +6,21 @@
 
 Compilation::Compilation(enum Nationality newCountry) : compilationCountry(newCountry) {}
 
-void Compilation::insertVideo(Video newVideo, const std::string &newVidTitle, const std::vector<std::string> &newTags) {
+void Compilation::insertVideo(const Video &newVideo, const std::string &newVidTitle, const std::vector<std::string> &newTags) {
 	//check if already exists
 	int newTrendingTimes = 1;
 	bool repeat = false;
 	if (compilation.contains(newVidTitle)) {
 		newTrendingTimes = compilation.at(newVidTitle).timesTrending + 1;
 		repeat = true;
+		if (newVideo.trendingDate > compilation.at(newVidTitle).trendingDate) {
+			compilation.insert_or_assign(newVidTitle, newVideo);
+			compilation.at(newVidTitle).timesTrending = newTrendingTimes;
+		}
 	}
-	compilation.insert_or_assign(newVidTitle, newVideo);
-	compilation.at(newVidTitle).timesTrending = newTrendingTimes;
+	else {
+		compilation.insert({newVidTitle, newVideo});
+	}
 
 
 	//add tags

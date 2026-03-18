@@ -20,7 +20,7 @@ struct Compilation {
 
 	Compilation(enum Nationality newCountry);
 
-	void insertVideo(Video newVideo, const std::string &newVidTitle, const std::vector<std::string> &newTags);
+	void insertVideo(const Video &newVideo, const std::string &newVidTitle, const std::vector<std::string> &newTags);
 
 	void compile(std::unordered_map<std::string, Video> &videosFinal, std::unordered_map<std::string, int> &tagsFinal); 
 };

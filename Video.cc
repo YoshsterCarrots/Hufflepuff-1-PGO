@@ -7,7 +7,7 @@ bool Video::operator<(const Video &other) { //sorts by viewcount to find duplica
 	return this->trendingDate < other.trendingDate;
 }
 
-Video::Video(const std::string &newTitle, const std::string &newChannel, const std::string &newTrendingDate, const std::string &newPublishDate, const std::string &newVideoID, int newViews, int newLikes, int newDislikes, int newComments) {
+Video::Video(const std::string &newTitle, const std::string &newChannel, const std::string &newPublishDate, const std::string &newVideoID, int newTrendingDate, int newViews, int newLikes, int newDislikes, int newComments) {
 	title = newTitle;
 	channel = newChannel;
 	trendingDate = newTrendingDate;
