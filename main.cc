@@ -208,7 +208,7 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 }
 
 string printVideoData(const Video& video) {
-	return video.title + " | " + video.channel + "\n      Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n      Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + video.trendingDate + " | Times Trending: " + to_string(video.timesTrending) + "\n      URL: https://www.youtube.com/watch?v=" + video.videoID;
+	return video.title + " | " + video.channel + "\n      Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n      Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + to_string(video.trendingDate) + " | Times Trending: " + to_string(video.timesTrending) + "\n      URL: https://www.youtube.com/watch?v=" + video.videoID;
 }
 /*
 void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func) {	
