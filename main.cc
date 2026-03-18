@@ -5,13 +5,13 @@
 #include <fstream>        // IWYU pragma: keep
 #include <unordered_map>  // IWYU pragma: keep
 #include "SortedCompilation.h" //IWYU pragma: keep
-#include <functional>     // IWYU pragma: keep
+//#include <functional>     // IWYU pragma: keep
 using namespace std;
 
 void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
 
 string printVideoData(const Video& video);
-void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
+//void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
 
 int main() {
 	ifstream videos("USvideos.csv");
@@ -44,14 +44,56 @@ int main() {
 	GB_Comp = Compilation (GB);
 	
 	SortedCompilation Full_Comp(allVideos, allTags);
-
+	
+	/*
 	outputFile << "Most Views:" << endl << endl;
 	printTop100(Full_Comp, outputFile, viewsCompare);
 	outputFile << endl << "Most Likes:" << endl << endl;
 	printTop100(Full_Comp, outputFile, likesCompare);
 	outputFile << endl << "Most Dislikes:" << endl << endl;
 	printTop100(Full_Comp, outputFile, dislikesCompare);
+	*/
+	
+	sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), viewsCompare);
+	cerr << "Most Views:" << endl << endl;
+	outputFile << "Most Views:" << endl << endl;
+	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+		const Video& vid = Full_Comp.sortedVideos.at(i);
+		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.views << " Views" << endl;
+		outputFile << i + 1 << ". " << printVideoData(vid);
+	}
+	cerr << endl;
+	outputFile << endl;
 
+	sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), likesCompare);
+	cerr << "Most Likes:" << endl << endl;
+	outputFile << "Most Likes:" << endl << endl;
+	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+		const Video& vid = Full_Comp.sortedVideos.at(i);
+		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.likes << " Likes" << endl;
+		outputFile << i + 1 << ". " << printVideoData(vid);
+	}
+	cerr << endl;
+	outputFile << endl;
+
+	sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), dislikesCompare);
+	cerr << "Most Dislikes:" << endl << endl;
+	outputFile << "Most Dislikes:" << endl << endl;
+	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+		const Video& vid = Full_Comp.sortedVideos.at(i);
+		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.dislikes << " Dislikes" << endl;
+		outputFile << i + 1 << ". " << printVideoData(vid);
+	}
+	cerr << endl;
+	outputFile << endl;
+
+	cerr << "Top Tags: " << endl << endl;
+	outputFile << "Top Tags: " << endl << endl;
+	for (int i = 0; i < 100 && i < Full_Comp.sortedTags.size(); i++) {
+		const pair<string, int>& tag = Full_Comp.sortedTags.at(i);
+		cerr << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
+		outputFile << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
+	}
 
 	outputFile.close();
 }
@@ -154,7 +196,7 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 				currCommCount += c;
 			}
 		}
-		char titleFirstLetter = tolower(currTitle.at(0));
+		//char titleFirstLetter = tolower(currTitle.at(0));
 		/*
 		outputFile << titleFirstLetter << ' ' << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
 		for (const string& s : currTagList) {
@@ -164,17 +206,18 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		outputFile << '\n';
 		*/
 		Video tempVideo(currTitle, currChannel, currTrendDate, currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
-		comp.insertVideo(tempVideo, titleFirstLetter, currTitle, currTagList);
+		comp.insertVideo(tempVideo, currTitle, currTagList);
 	}
 }
 
 string printVideoData(const Video& video) {
-	return video.title + " | " + video.channel + "\n    Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n    Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + video.trendingDate + " | Times Trending: " + to_string(video.timesTrending) + "\n    URL: https://www.youtube.com/watch?v=" + video.videoID;
+	return video.title + " | " + video.channel + "\n      Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n      Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + video.trendingDate + " | Times Trending: " + to_string(video.timesTrending) + "\n      URL: https://www.youtube.com/watch?v=" + video.videoID;
 }
-
+/*
 void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func) {	
 	sort(comp.sortedVideos.begin(), comp.sortedVideos.end(), viewsCompare);
 	for (int i = 0; i < 100 && i < comp.sortedVideos.size(); i++) {
 		output << i + 1 << ". " << printVideoData(comp.sortedVideos.at(i)) << endl;
 	}
 }
+*/

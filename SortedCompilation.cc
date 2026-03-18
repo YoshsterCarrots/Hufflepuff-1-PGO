@@ -31,7 +31,7 @@ SortedCompilation::SortedCompilation(const std::unordered_map<std::string, Video
 	for (const auto& [title, vid] : newVideos) {
 		sortedVideos.emplace_back(vid);
 	}
-	std::sort(sortedVideos.begin(), sortedVideos.end(), viewsCompare);
+
 	//tags
 	sortedVideos.reserve(newTags.size());
 	for (const auto& [tag, count] : newTags) {
