@@ -196,7 +196,7 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 				currCommCount += c;
 			}
 		}
-		char titleFirstLetter = tolower(currTitle.at(0));
+		//char titleFirstLetter = tolower(currTitle.at(0));
 		/*
 		outputFile << titleFirstLetter << ' ' << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
 		for (const string& s : currTagList) {
@@ -206,7 +206,7 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		outputFile << '\n';
 		*/
 		Video tempVideo(currTitle, currChannel, currTrendDate, currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
-		comp.insertVideo(tempVideo, titleFirstLetter, currTitle, currTagList);
+		comp.insertVideo(tempVideo, currTitle, currTagList);
 	}
 }
 
