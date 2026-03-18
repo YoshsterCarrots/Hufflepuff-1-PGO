@@ -23,19 +23,19 @@ int main() {
 	Compilation INTL_Comp(INTERNATIONAL);
 	
 	parseVideos(videos, outputFile, INTL_Comp);
-	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 	videos = ifstream ("CAvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
-	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 	videos = ifstream ("GBvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
-	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 	
