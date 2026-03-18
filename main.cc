@@ -21,21 +21,23 @@ int main() {
 	//unordered_map<string, int> allTags;
 
 	Compilation INTL_Comp(INTERNATIONAL);
-	
+	INTL_Comp.compilation.reserve(30800);
+	INTL_Comp.tags.reserve(186000);
+
 	parseVideos(videos, outputFile, INTL_Comp);
-	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 	videos = ifstream ("CAvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
-	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 	videos = ifstream ("GBvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
-	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 	
@@ -201,13 +203,14 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		outputFile << ' ' << stoi(currViews) << ' ' << stoi(currLikes) << ' ' << stoi(currDislikes) << ' ' << stoi(currCommCount);
 		outputFile << '\n';
 		*/
-		Video tempVideo(currTitle, currChannel, currTrendDate, currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
+		currTrendDate = to_string(currTrendDate.at(0)) + currTrendDate.at(1) + currTrendDate.at(6) + currTrendDate.at(7) + currTrendDate.at(3) + currTrendDate.at(4);
+		Video tempVideo(currTitle, currChannel, currPubTime, currID, stoi(currTrendDate), stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
 		comp.insertVideo(tempVideo, currTitle, currTagList);
 	}
 }
 
 string printVideoData(const Video& video) {
-	return video.title + " | " + video.channel + "\n      Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n      Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + video.trendingDate + " | Times Trending: " + to_string(video.timesTrending) + "\n      URL: https://www.youtube.com/watch?v=" + video.videoID;
+	return video.title + " | " + video.channel + "\n      Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n      Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + to_string(video.trendingDate) + " | Times Trending: " + to_string(video.timesTrending) + "\n      URL: https://www.youtube.com/watch?v=" + video.videoID;
 }
 /*
 void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func) {	
