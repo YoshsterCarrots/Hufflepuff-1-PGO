@@ -17,33 +17,29 @@ int main() {
 	ifstream videos("USvideos.csv");
 	ofstream outputFile("compiledVideos.txt");
 
-	unordered_map<string, Video> allVideos;
-	unordered_map<string, int> allTags;
+	//unordered_map<string, Video> allVideos;
+	//unordered_map<string, int> allTags;
+
+	Compilation INTL_Comp(INTERNATIONAL);
 	
-	Compilation US_Comp(US); 
-	parseVideos(videos, outputFile, US_Comp);
-	US_Comp.compile(allVideos, allTags);
-	cerr << "Video map size: " << allVideos.size() << endl;
-	cerr << "Tag map size: " << allTags.size() << endl;
-	US_Comp = Compilation (US);
+	parseVideos(videos, outputFile, INTL_Comp);
+	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 	videos = ifstream ("CAvideos.csv");
-	Compilation CA_Comp(CA);
-	parseVideos(videos, outputFile, CA_Comp);
-	CA_Comp.compile(allVideos, allTags);
-	cerr << "Video map size: " << allVideos.size() << endl;
-	cerr << "Tag map size: " << allTags.size() << endl;
-	CA_Comp = Compilation (CA);
+	parseVideos(videos, outputFile, INTL_Comp);
+	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 	videos = ifstream ("GBvideos.csv");
-	Compilation GB_Comp(GB);
-	parseVideos(videos, outputFile, GB_Comp);
-	GB_Comp.compile(allVideos, allTags);
-	cerr << "Video map size: " << allVideos.size() << endl;
-	cerr << "Tag map size: " << allTags.size() << endl;
-	GB_Comp = Compilation (GB);
+	parseVideos(videos, outputFile, INTL_Comp);
+	INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+	cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 	
-	SortedCompilation Full_Comp(allVideos, allTags);
+	SortedCompilation Full_Comp(INTL_Comp.compilation, INTL_Comp.tags);
 	
 	/*
 	outputFile << "Most Views:" << endl << endl;
