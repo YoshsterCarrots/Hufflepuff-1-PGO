@@ -202,7 +202,7 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		outputFile << '\n';
 		*/
 		currTrendDate = to_string(currTrendDate.at(0)) + currTrendDate.at(1) + currTrendDate.at(6) + currTrendDate.at(7) + currTrendDate.at(3) + currTrendDate.at(4);
-		Video tempVideo(currTitle, currChannel, stoi(currTrendDate), currPubTime, currID, stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
+		Video tempVideo(currTitle, currChannel, currPubTime, currID, stoi(currTrendDate), stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
 		comp.insertVideo(tempVideo, currTitle, currTagList);
 	}
 }
