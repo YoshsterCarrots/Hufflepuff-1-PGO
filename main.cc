@@ -5,11 +5,13 @@
 #include <fstream>        // IWYU pragma: keep
 #include <unordered_map>  // IWYU pragma: keep
 #include "SortedCompilation.h" //IWYU pragma: keep
+#include <functional>     // IWYU pragma: keep
 using namespace std;
 
 void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
 
 string printVideoData(const Video& video);
+void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
 
 int main() {
 	ifstream videos("USvideos.csv");
@@ -21,25 +23,35 @@ int main() {
 	Compilation US_Comp(US); 
 	parseVideos(videos, outputFile, US_Comp);
 	US_Comp.compile(allVideos, allTags);
+	cerr << "Video map size: " << allVideos.size() << endl;
+	cerr << "Tag map size: " << allTags.size() << endl;
 	US_Comp = Compilation (US);
 
 	videos = ifstream ("CAvideos.csv");
 	Compilation CA_Comp(CA);
 	parseVideos(videos, outputFile, CA_Comp);
 	CA_Comp.compile(allVideos, allTags);
+	cerr << "Video map size: " << allVideos.size() << endl;
+	cerr << "Tag map size: " << allTags.size() << endl;
 	CA_Comp = Compilation (CA);
 
 	videos = ifstream ("GBvideos.csv");
 	Compilation GB_Comp(GB);
 	parseVideos(videos, outputFile, GB_Comp);
 	GB_Comp.compile(allVideos, allTags);
+	cerr << "Video map size: " << allVideos.size() << endl;
+	cerr << "Tag map size: " << allTags.size() << endl;
 	GB_Comp = Compilation (GB);
 	
 	SortedCompilation Full_Comp(allVideos, allTags);
-	sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), likesCompare);
-	for (const Video& vid : Full_Comp.sortedVideos) {
-		outputFile << printVideoData(vid) << endl;
-	}
+
+	outputFile << "Most Views:" << endl << endl;
+	printTop100(Full_Comp, outputFile, viewsCompare);
+	outputFile << endl << "Most Likes:" << endl << endl;
+	printTop100(Full_Comp, outputFile, likesCompare);
+	outputFile << endl << "Most Dislikes:" << endl << endl;
+	printTop100(Full_Comp, outputFile, dislikesCompare);
+
 
 	outputFile.close();
 }
@@ -158,4 +170,11 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 
 string printVideoData(const Video& video) {
 	return video.title + " | " + video.channel + "\n    Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n    Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + video.trendingDate + " | Times Trending: " + to_string(video.timesTrending) + "\n    URL: https://www.youtube.com/watch?v=" + video.videoID;
+}
+
+void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func) {	
+	sort(comp.sortedVideos.begin(), comp.sortedVideos.end(), viewsCompare);
+	for (int i = 0; i < 100 && i < comp.sortedVideos.size(); i++) {
+		output << i + 1 << ". " << printVideoData(comp.sortedVideos.at(i)) << endl;
+	}
 }
