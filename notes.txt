@@ -1,2 +1,9 @@
 Compile with -fsanitize=address and -fsanitize=undefined and -g during testing
 Also use safe c++ library(?)
+
+Data Analysis Notes:
+	About 240 videos in the data have 0 likes -- I believe these all might have likes and dislikes disabled
+	A large number of the highest disliked videos are by Jake Paul or Logan Paul
+	"Kris Wu - Like That (Official Music Video)" apparently has 123856 likes and 0 dislikes???
+		This seems like it could be an error in the dataset, as this specific video has strange data in the csv
+	The word "Trump" appears in the title of 1053 videos

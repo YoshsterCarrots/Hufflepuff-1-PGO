@@ -30,18 +30,18 @@ Person 1 - The Data Scientist
 Your job is to do data science and discover interesting things from a data file you download.
 
 Tasks:
-1. Go onto Kaggle (https://www.kaggle.com/) and download an interesting CSV dataset that is reasonably large
-2. Import the CSV file into your C++ program
-3. Do something interesting with the data (pitch it to me) that will take between 10 seconds and 1 minute to run
-	A. It needs to have multiple nested branches
-	B. It needs to have multiple loops
+X1. Go onto Kaggle (https://www.kaggle.com/) and download an interesting CSV dataset that is reasonably large
+X2. Import the CSV file into your C++ program
+X3. Do something interesting with the data (pitch it to me) that will take between 10 seconds and 1 minute to run
+X	A. It needs to have multiple nested branches
+X	B. It needs to have multiple loops
 4. Update the README.md for your project describing what you are doing
-5. Your source code must have multiple .cc and .h files with function calls between the different files.
-6. Make a Makefile that will handle all the different compilation options (Gcov, PGO generate, PGO use, LTO, -O3, etc)
-	A. It should have a make clean option that will erase all .gcda, .gcno, and .gcov files
-	B. Down below when there are examples of how to compile a simple program with just main.cc in it, you will need to incorporate those into the Makefile
-	C. Your partners can edit and revise the Makefile as well
-7. Write up things you find interesting about your data analysis and send it to The Instrumenter for their report
+X5. Your source code must have multiple .cc and .h files with function calls between the different files.
+X6. Make a Makefile that will handle all the different compilation options (Gcov, PGO generate, PGO use, LTO, -O3, etc)
+X	A. It should have a make clean option that will erase all .gcda, .gcno, and .gcov files
+X	B. Down below when there are examples of how to compile a simple program with just main.cc in it, you will need to incorporate those into the Makefile
+X	C. Your partners can edit and revise the Makefile as well
+X7. Write up things you find interesting about your data analysis and send it to The Instrumenter for their report
 
 ===============================================================================================
 
