@@ -21,7 +21,9 @@ int main() {
 	//unordered_map<string, int> allTags;
 
 	Compilation INTL_Comp(INTERNATIONAL);
-	
+	INTL_Comp.compilation.reserve(30800);
+	INTL_Comp.tags.reserve(186000);
+
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
