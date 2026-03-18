@@ -56,7 +56,7 @@ int main() {
 	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
 		const Video& vid = Full_Comp.sortedVideos.at(i);
 		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.views << " Views" << endl;
-		outputFile << i + 1 << ". " << printVideoData(vid);
+		outputFile << i + 1 << ". " << printVideoData(vid) << endl;
 	}
 	cerr << endl;
 	outputFile << endl;
@@ -67,7 +67,7 @@ int main() {
 	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
 		const Video& vid = Full_Comp.sortedVideos.at(i);
 		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.likes << " Likes" << endl;
-		outputFile << i + 1 << ". " << printVideoData(vid);
+		outputFile << i + 1 << ". " << printVideoData(vid) << endl;
 	}
 	cerr << endl;
 	outputFile << endl;
@@ -78,7 +78,7 @@ int main() {
 	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
 		const Video& vid = Full_Comp.sortedVideos.at(i);
 		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.dislikes << " Dislikes" << endl;
-		outputFile << i + 1 << ". " << printVideoData(vid);
+		outputFile << i + 1 << ". " << printVideoData(vid) << endl;
 	}
 	cerr << endl;
 	outputFile << endl;
