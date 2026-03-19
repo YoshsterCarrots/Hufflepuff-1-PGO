@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang ="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Report</title>
+	</head>
+	<body>
+		<h1> first file. </h1>
+		<pre>
+			1         -:    0:Source:main.cc
+    2         -:    0:Graph:a-main.gcno
+    3         -:    0:Data:-
+    4         -:    0:Runs:0
+    5         -:    0:Source is newer than graph
+    6         -:    1:#include "/public/read.h" // IWYU pragma: keep
+    7         -:    2:#include <string>         // IWYU pragma: keep
+    8         -:    3:#include <vector>         // IWYU pragma: keep
+    9         -:    4:#include <iostream>       // IWYU pragma: keep
+   10     #####:    5:#include <fstream>        // IWYU pragma: keep
+   11     #####:    6:#include <unordered_map>  // IWYU pragma: keep
+   12     #####:    7:#include "SortedCompilation.h" //IWYU pragma: keep
+   13         -:    8://#include <functional>     // IWYU pragma: keep
+   14         -:    9:using namespace std;
+   15         -:   10:
+   16         -:   11:void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
+   17         -:   12:
+   18         -:   13:string printVideoData(const Video& video);
+   19         -:   14://void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
+   20         -:   15:
+   21         -:   16:int main() {
+   22         -:   17:    ifstream videos("test_2.csv");
+   23         -:   18:    ofstream outputFile("compiledVideos.txt");
+   24         -:   19:
+   25         -:   20:    //unordered_map<string, Video> allVideos;
+   26         -:   21:    //unordered_map<string, int> allTags;
+   27         -:   22:
+   28         -:   23:    Compilation INTL_Comp(INTERNATIONAL);
+   29         -:   24:    INTL_Comp.compilation.reserve(30800);
+   30         -:   25:    INTL_Comp.tags.reserve(186000);
+   31         -:   26:
+   32         -:   27:    parseVideos(videos, outputFile, INTL_Comp);
+   33         -:   28:    //INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+   34         -:   29:    cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+   35         -:   30:    cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+   36         -:   31:
+   37         -:   32:    videos = ifstream ("test_2.csv");
+   38         -:   33:    parseVideos(videos, outputFile, INTL_Comp);
+   39         -:   34:    //INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+   40         -:   35:    cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+   41         -:   36:    cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+   42         -:   37:
+   43         -:   38:    videos = ifstream ("test_2.csv");
+   44         -:   39:    parseVideos(videos, outputFile, INTL_Comp);
+   45         -:   40:    //INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+   46         -:   41:    cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+   47         -:   42:    cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+   48         -:   43:
+   49         -:   44:    SortedCompilation Full_Comp(INTL_Comp.compilation, INTL_Comp.tags);
+   50         -:   45:
+   51         -:   46:    /* 
+   52         -:   47:    outputFile << "Most Views:" << endl << endl;
+   53         -:   48:    printTop100(Full_Comp, outputFile, viewsCompare);
+   54         -:   49:    outputFile << endl << "Most Likes:" << endl << endl;
+   55         -:   50:    printTop100(Full_Comp, outputFile, likesCompare);
+   56         -:   51:    outputFile << endl << "Most Dislikes:" << endl << endl;
+   57         -:   52:    printTop100(Full_Comp, outputFile, dislikesCompare);
+   58         -:   53:    */
+   59         -:   54:
+   60         -:   55:    sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), viewsCompare);
+   61         -:   56:    cerr << "Most Views:" << endl << endl;
+   62         -:   57:    outputFile << "Most Views:" << endl << endl;
+   63         -:   58:    for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+   64         -:   59:        const Video& vid = Full_Comp.sortedVideos.at(i);
+   65         -:   60:        cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.views << " Views" << endl;
+   66         -:   61:        outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+   67         -:   62:    }
+   68         -:   63:    cerr << endl;
+   69         -:   64:    outputFile << endl;
+   70         -:   65:
+   71         -:   66:    sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), likesCompare);
+   72         -:   67:    cerr << "Most Likes:" << endl << endl;
+   73         -:   68:    outputFile << "Most Likes:" << endl << endl;
+   74         -:   69:    for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+   75         -:   70:        const Video& vid = Full_Comp.sortedVideos.at(i);
+   76         -:   71:        cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.likes << " Likes" << endl;
+   77         -:   72:        outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+   78         -:   73:    }
+   79         -:   74:    cerr << endl;
+   80         -:   75:    outputFile << endl;
+   81         -:   76:
+   82         -:   77:    sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), dislikesCompare);
+   83         -:   78:    cerr << "Most Dislikes:" << endl << endl;
+   84         -:   79:    outputFile << "Most Dislikes:" << endl << endl;
+   85         -:   80:    for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+   86         -:   81:        const Video& vid = Full_Comp.sortedVideos.at(i);
+   87         -:   82:        cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.dislikes << " Dislikes" << endl;
+   88         -:   83:        outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+   89         -:   84:    }
+   90         -:   85:    cerr << endl;
+   91         -:   86:    outputFile << endl;
+   92         -:   87:
+   93         -:   88:    cerr << "Top Tags: " << endl << endl;
+   94         -:   89:    outputFile << "Top Tags: " << endl << endl;
+   95         -:   90:    for (int i = 0; i < 100 && i < Full_Comp.sortedTags.size(); i++) {
+   96         -:   91:        const pair<string, int>& tag = Full_Comp.sortedTags.at(i);
+   97         -:   92:        cerr << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
+   98         -:   93:        outputFile << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
+   99         -:   94:    }
+  100         -:   95:
+  101         -:   96:    outputFile.close();
+  102         -:   97:}
+  103         -:   98:
+  104         -:   99:
+  105         -:  100:
+  106         -:  101://TODO:
+  107         -:  102:// - accomodate for all things we will record:
+  108         -:  103://   - 1. title, 2. trend date, 3. channel, 4. publish date/time, 5. views,
+  109         -:  104://     6. likes, 7. dislikes, 8. comment count, 9. tags
+  110         -:  105://
+  111         -:  106://     and most importantly 10. availability - if the video's unavailable, don't log it.
+  112         -:  107://   - tags will take some extra parsing because of the intermittent "|" characters; they can also be within a tag itself,
+  113         -:  108://   so be sure to account for that with isInQuote.
+  114         -:  109:
+  115         -:  110:
+  116         -:  111:void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
+  117         -:  112:    string currLine;
+  118         -:  113:
+  119         -:  114:    getline(videos, currLine);
+  120         -:  115:    while (getline(videos, currLine)) {
+  121         -:  116:        int commaCount = 0;
+  122         -:  117:        bool isInQuote = false;
+  123         -:  118:        bool isAvailable = true;
+  124         -:  119:        for (char c : currLine) {
+  125         -:  120:            if (commaCount == 14) {
+  126         -:  121:                if (c == 'T') {
+  127         -:  122:                    isAvailable = false;
+  128         -:  123:                }
+  129         -:  124:                break;
+  130         -:  125:            }
+  131         -:  126:            else if (c == '"') {
+  132         -:  127:                isInQuote = !isInQuote;
+  133         -:  128:            }
+  134         -:  129:            else if (!isInQuote && c == ',') {
+  135         -:  130:                commaCount++;
+  136         -:  131:            }
+  137         -:  132:        }
+  138         -:  133:        if (!isAvailable) {
+  139         -:  134:            continue;
+  140         -:  135:        }
+  141         -:  136:        commaCount = 0;
+  142         -:  137:        isInQuote = false;
+  143         -:  138:        string currID = "";
+  144         -:  139:        string currTrendDate = "";
+  145         -:  140:        string currTitle = "";
+  146         -:  141:        string currChannel = "";
+  147         -:  142:        string currPubTime = "";
+  148         -:  143:        vector<string> currTagList = {};
+  149         -:  144:        string currTag = "";
+  150         -:  145:        string currViews = "";
+  151         -:  146:        string currLikes = "";
+  152         -:  147:        string currDislikes = "";
+  153         -:  148:        string currCommCount = "";
+  154         -:  149:        for (char c : currLine) {
+  155         -:  150:            if (c == '"') {
+  156         -:  151:                isInQuote = !isInQuote;
+  157         -:  152:            }
+  158         -:  153:            else if (!isInQuote && c == ',') {
+  159         -:  154:                if (currTag != "") {
+  160         -:  155:                    currTagList.push_back(currTag);
+  161         -:  156:                    currTag = "";
+  162         -:  157:                }
+  163         -:  158:                commaCount++;
+  164         -:  159:            }
+  165         -:  160:            else if (commaCount == 0) {
+  166         -:  161:                currID += c;
+  167         -:  162:            }
+  168         -:  163:            else if (commaCount == 1) {
+  169         -:  164:                currTrendDate += c;
+  170         -:  165:            }
+  171         -:  166:            else if (commaCount == 2) {
+  172         -:  167:                currTitle += c;
+  173         -:  168:            }
+  174         -:  169:            else if (commaCount == 3) {
+  175         -:  170:                currChannel += c;
+  176         -:  171:            }
+  177         -:  172:            else if (commaCount == 5) {
+  178         -:  173:                currPubTime += c;
+  179         -:  174:            }
+  180         -:  175:            else if (commaCount == 6) {
+  181         -:  176:                if (!isInQuote && c == '|') {
+  182         -:  177:                    currTagList.push_back(currTag);
+  183         -:  178:                    currTag = "";
+  184         -:  179:                }
+  185         -:  180:                else {
+  186         -:  181:                    currTag += c;
+  187         -:  182:                }
+  188         -:  183:            }
+  189         -:  184:            else if (commaCount == 7) {
+  190         -:  185:                currViews += c;
+  191         -:  186:            }
+  192         -:  187:            else if (commaCount == 8) {
+  193         -:  188:                currLikes += c;
+  194         -:  189:            }
+  195         -:  190:            else if (commaCount == 9) {
+  196         -:  191:                currDislikes += c;
+  197         -:  192:            }
+  198         -:  193:            else if (commaCount == 10) {
+  199         -:  194:                currCommCount += c;
+  200         -:  195:            }
+  201         -:  196:        }
+  202         -:  197:        //char titleFirstLetter = tolower(currTitle.at(0));
+  203         -:  198:        /*
+  204         -:  199:        outputFile << titleFirstLetter << ' ' << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
+		</pre>
+	    <h1> second file. </h1>
+	    <pre>
+			1         -:    0:Source:main.cc
+    2         -:    0:Graph:a-main.gcno
+    3         -:    0:Data:-
+    4         -:    0:Runs:0
+    5         -:    0:Source is newer than graph
+    6         -:    1:#include "/public/read.h" // IWYU pragma: keep
+    7         -:    2:#include <string>         // IWYU pragma: keep
+    8         -:    3:#include <vector>         // IWYU pragma: keep
+    9         -:    4:#include <iostream>       // IWYU pragma: keep
+   10     #####:    5:#include <fstream>        // IWYU pragma: keep
+   11     #####:    6:#include <unordered_map>  // IWYU pragma: keep
+   12     #####:    7:#include "SortedCompilation.h" //IWYU pragma: keep
+   13         -:    8://#include <functional>     // IWYU pragma: keep
+   14         -:    9:using namespace std;
+   15         -:   10:
+   16         -:   11:void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
+   17         -:   12:
+   18         -:   13:string printVideoData(const Video& video);
+   19         -:   14://void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
+   20         -:   15:
+   21         -:   16:int main() {
+   22         -:   17:    ifstream videos("test_2.csv");
+   23         -:   18:    ofstream outputFile("compiledVideos.txt");
+   24         -:   19:
+   25         -:   20:    //unordered_map<string, Video> allVideos;
+   26         -:   21:    //unordered_map<string, int> allTags;
+   27         -:   22:
+   28         -:   23:    Compilation INTL_Comp(INTERNATIONAL);
+   29         -:   24:    INTL_Comp.compilation.reserve(30800);
+   30         -:   25:    INTL_Comp.tags.reserve(186000);
+   31         -:   26:
+   32         -:   27:    parseVideos(videos, outputFile, INTL_Comp);
+   33         -:   28:    //INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+   34         -:   29:    cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+   35         -:   30:    cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+   36         -:   31:
+   37         -:   32:    videos = ifstream ("test_2.csv");
+   38         -:   33:    parseVideos(videos, outputFile, INTL_Comp);
+   39         -:   34:    //INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+   40         -:   35:    cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+   41         -:   36:    cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+   42         -:   37:
+   43         -:   38:    videos = ifstream ("test_2.csv");
+   44         -:   39:    parseVideos(videos, outputFile, INTL_Comp);
+   45         -:   40:    //INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+   46         -:   41:    cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+   47         -:   42:    cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+   48         -:   43:
+   49         -:   44:    SortedCompilation Full_Comp(INTL_Comp.compilation, INTL_Comp.tags);
+   50         -:   45:
+   51         -:   46:    /* 
+   52         -:   47:    outputFile << "Most Views:" << endl << endl;
+   53         -:   48:    printTop100(Full_Comp, outputFile, viewsCompare);
+   54         -:   49:    outputFile << endl << "Most Likes:" << endl << endl;
+   55         -:   50:    printTop100(Full_Comp, outputFile, likesCompare);
+   56         -:   51:    outputFile << endl << "Most Dislikes:" << endl << endl;
+   57         -:   52:    printTop100(Full_Comp, outputFile, dislikesCompare);
+   58         -:   53:    */
+   59         -:   54:
+   60         -:   55:    sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), viewsCompare);
+   61         -:   56:    cerr << "Most Views:" << endl << endl;
+   62         -:   57:    outputFile << "Most Views:" << endl << endl;
+   63         -:   58:    for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+   64         -:   59:        const Video& vid = Full_Comp.sortedVideos.at(i);
+   65         -:   60:        cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.views << " Views" << endl;
+   66         -:   61:        outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+   67         -:   62:    }
+   68         -:   63:    cerr << endl;
+   69         -:   64:    outputFile << endl;
+   70         -:   65:
+   71         -:   66:    sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), likesCompare);
+   72         -:   67:    cerr << "Most Likes:" << endl << endl;
+   73         -:   68:    outputFile << "Most Likes:" << endl << endl;
+   74         -:   69:    for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+   75         -:   70:        const Video& vid = Full_Comp.sortedVideos.at(i);
+   76         -:   71:        cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.likes << " Likes" << endl;
+   77         -:   72:        outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+   78         -:   73:    }
+   79         -:   74:    cerr << endl;
+   80         -:   75:    outputFile << endl;
+   81         -:   76:
+   82         -:   77:    sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), dislikesCompare);
+   83         -:   78:    cerr << "Most Dislikes:" << endl << endl;
+   84         -:   79:    outputFile << "Most Dislikes:" << endl << endl;
+   85         -:   80:    for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+   86         -:   81:        const Video& vid = Full_Comp.sortedVideos.at(i);
+   87         -:   82:        cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.dislikes << " Dislikes" << endl;
+   88         -:   83:        outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+   89         -:   84:    }
+   90         -:   85:    cerr << endl;
+   91         -:   86:    outputFile << endl;
+   92         -:   87:
+   93         -:   88:    cerr << "Top Tags: " << endl << endl;
+   94         -:   89:    outputFile << "Top Tags: " << endl << endl;
+   95         -:   90:    for (int i = 0; i < 100 && i < Full_Comp.sortedTags.size(); i++) {
+   96         -:   91:        const pair<string, int>& tag = Full_Comp.sortedTags.at(i);
+   97         -:   92:        cerr << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
+   98         -:   93:        outputFile << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
+   99         -:   94:    }
+  100         -:   95:
+  101         -:   96:    outputFile.close();
+  102         -:   97:}
+  103         -:   98:
+  104         -:   99:
+  105         -:  100:
+  106         -:  101://TODO:
+  107         -:  102:// - accomodate for all things we will record:
+  108         -:  103://   - 1. title, 2. trend date, 3. channel, 4. publish date/time, 5. views,
+  109         -:  104://     6. likes, 7. dislikes, 8. comment count, 9. tags
+  110         -:  105://
+  111         -:  106://     and most importantly 10. availability - if the video's unavailable, don't log it.
+  112         -:  107://   - tags will take some extra parsing because of the intermittent "|" characters; they can also be within a tag itself,
+  113         -:  108://   so be sure to account for that with isInQuote.
+  114         -:  109:
+  115         -:  110:
+  116         -:  111:void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
+  117         -:  112:    string currLine;
+  118         -:  113:
+  119         -:  114:    getline(videos, currLine);
+  120         -:  115:    while (getline(videos, currLine)) {
+  121         -:  116:        int commaCount = 0;
+  122         -:  117:        bool isInQuote = false;
+  123         -:  118:        bool isAvailable = true;
+  124         -:  119:        for (char c : currLine) {
+  125         -:  120:            if (commaCount == 14) {
+  126         -:  121:                if (c == 'T') {
+  127         -:  122:                    isAvailable = false;
+  128         -:  123:                }
+  129         -:  124:                break;
+  130         -:  125:            }
+  131         -:  126:            else if (c == '"') {
+  132         -:  127:                isInQuote = !isInQuote;
+  133         -:  128:            }
+  134         -:  129:            else if (!isInQuote && c == ',') {
+  135         -:  130:                commaCount++;
+  136         -:  131:            }
+  137         -:  132:        }
+  138         -:  133:        if (!isAvailable) {
+  139         -:  134:            continue;
+  140         -:  135:        }
+  141         -:  136:        commaCount = 0;
+  142         -:  137:        isInQuote = false;
+  143         -:  138:        string currID = "";
+  144         -:  139:        string currTrendDate = "";
+  145         -:  140:        string currTitle = "";
+  146         -:  141:        string currChannel = "";
+  147         -:  142:        string currPubTime = "";
+  148         -:  143:        vector<string> currTagList = {};
+  149         -:  144:        string currTag = "";
+  150         -:  145:        string currViews = "";
+  151         -:  146:        string currLikes = "";
+  152         -:  147:        string currDislikes = "";
+  153         -:  148:        string currCommCount = "";
+  154         -:  149:        for (char c : currLine) {
+  155         -:  150:            if (c == '"') {
+  156         -:  151:                isInQuote = !isInQuote;
+  157         -:  152:            }
+  158         -:  153:            else if (!isInQuote && c == ',') {
+  159         -:  154:                if (currTag != "") {
+  160         -:  155:                    currTagList.push_back(currTag);
+  161         -:  156:                    currTag = "";
+  162         -:  157:                }
+  163         -:  158:                commaCount++;
+  164         -:  159:            }
+  165         -:  160:            else if (commaCount == 0) {
+  166         -:  161:                currID += c;
+  167         -:  162:            }
+  168         -:  163:            else if (commaCount == 1) {
+  169         -:  164:                currTrendDate += c;
+  170         -:  165:            }
+  171         -:  166:            else if (commaCount == 2) {
+  172         -:  167:                currTitle += c;
+  173         -:  168:            }
+  174         -:  169:            else if (commaCount == 3) {
+  175         -:  170:                currChannel += c;
+  176         -:  171:            }
+  177         -:  172:            else if (commaCount == 5) {
+  178         -:  173:                currPubTime += c;
+  179         -:  174:            }
+  180         -:  175:            else if (commaCount == 6) {
+  181         -:  176:                if (!isInQuote && c == '|') {
+  182         -:  177:                    currTagList.push_back(currTag);
+  183         -:  178:                    currTag = "";
+  184         -:  179:                }
+  185         -:  180:                else {
+  186         -:  181:                    currTag += c;
+  187         -:  182:                }
+  188         -:  183:            }
+  189         -:  184:            else if (commaCount == 7) {
+  190         -:  185:                currViews += c;
+  191         -:  186:            }
+  192         -:  187:            else if (commaCount == 8) {
+  193         -:  188:                currLikes += c;
+  194         -:  189:            }
+  195         -:  190:            else if (commaCount == 9) {
+  196         -:  191:                currDislikes += c;
+  197         -:  192:            }
+  198         -:  193:            else if (commaCount == 10) {
+  199         -:  194:                currCommCount += c;
+  200         -:  195:            }
+  201         -:  196:        }
+  202         -:  197:        //char titleFirstLetter = tolower(currTitle.at(0));
+  203         -:  198:        /*
+  204         -:  199:        outputFile << titleFirstLetter << ' ' << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
+	    </pre>
+	</body>
+</html>
+
+	
