@@ -3,354 +3,756 @@
 #
 # Total Lost Samples: 0
 #
-# Samples: 12  of event 'cycles:Pu'
-# Event count (approx.): 1245383
+# Samples: 6K of event 'cycles:Pu'
+# Event count (approx.): 3820678770
 #
-# Children      Self  Command  Shared Object          Symbol                      
-# ........  ........  .......  .....................  ............................
+# Children      Self  Command  Shared Object          Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+# ........  ........  .......  .....................  ................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
 #
-    77.30%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288e354
-            |
-            ---0x7fff2288e354
-               |          
-                --77.23%--0x7fff2288a408
-                          0x7fff22889028
-                          |          
-                          |--64.29%--0x7fff2288bcfc
-                          |          0x7fff22881428
-                          |          |          
-                          |          |--43.20%--0x7fff2288013f
-                          |          |          |          
-                          |          |          |--22.03%--0x7fff2288009c
-                          |          |          |          
-                          |          |           --21.17%--0x7fff228800b8
-                          |          |          
-                          |           --21.09%--0x7fff22880140
-                          |                     0x7fff2287c2d0
-                          |          
-                          |--11.78%--0x7fff2288bc90
-                          |          0x7fff22881428
-                          |          0x7fff22880140
-                          |          0x7fff2287c2b4
-                          |          
-                           --1.16%--0x7fff2288ae34
-                                     0x7fff2287d814
-
-    77.23%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288a408
-            |
-            ---0x7fff2288a408
-               0x7fff22889028
-               |          
-               |--64.29%--0x7fff2288bcfc
-               |          0x7fff22881428
-               |          |          
-               |          |--43.20%--0x7fff2288013f
-               |          |          |          
-               |          |          |--22.03%--0x7fff2288009c
-               |          |          |          
-               |          |           --21.17%--0x7fff228800b8
-               |          |          
-               |           --21.09%--0x7fff22880140
-               |                     0x7fff2287c2d0
-               |          
-               |--11.78%--0x7fff2288bc90
-               |          0x7fff22881428
-               |          0x7fff22880140
-               |          0x7fff2287c2b4
-               |          
-                --1.16%--0x7fff2288ae34
-                          0x7fff2287d814
-
-    77.23%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22889028
-            |
-            ---0x7fff22889028
-               |          
-               |--64.29%--0x7fff2288bcfc
-               |          0x7fff22881428
-               |          |          
-               |          |--43.20%--0x7fff2288013f
-               |          |          |          
-               |          |          |--22.03%--0x7fff2288009c
-               |          |          |          
-               |          |           --21.17%--0x7fff228800b8
-               |          |          
-               |           --21.09%--0x7fff22880140
-               |                     0x7fff2287c2d0
-               |          
-               |--11.78%--0x7fff2288bc90
-               |          0x7fff22881428
-               |          0x7fff22880140
-               |          0x7fff2287c2b4
-               |          
-                --1.16%--0x7fff2288ae34
-                          0x7fff2287d814
-
-    76.07%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22881428
-            |
-            ---0x7fff22881428
-               |          
-               |--43.20%--0x7fff2288013f
-               |          |          
-               |          |--22.03%--0x7fff2288009c
-               |          |          
-               |           --21.17%--0x7fff228800b8
-               |          
-                --32.87%--0x7fff22880140
-                          |          
-                          |--21.09%--0x7fff2287c2d0
-                          |          
-                           --11.78%--0x7fff2287c2b4
-
-    64.29%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288bcfc
-            |
-            ---0x7fff2288bcfc
-               0x7fff22881428
-               |          
-               |--43.20%--0x7fff2288013f
-               |          |          
-               |          |--22.03%--0x7fff2288009c
-               |          |          
-               |           --21.17%--0x7fff228800b8
-               |          
-                --21.09%--0x7fff22880140
-                          0x7fff2287c2d0
-
-    43.20%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288013f
-            |
-            ---0x7fff2288013f
-               |          
-               |--22.03%--0x7fff2288009c
-               |          
-                --21.17%--0x7fff228800b8
-
-    32.87%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22880140
-            |
-            ---0x7fff22880140
-               |          
-               |--21.09%--0x7fff2287c2d0
-               |          
-                --11.78%--0x7fff2287c2b4
-
-    22.70%    22.70%  a.out    libc.so.6              [.] _IO_file_seekoff
+    99.97%     0.00%  a.out    a.out                  [.] _start
             |
             ---_start
                __libc_start_main
-               0x7fff224422a0
-               0x7fff224595e0
-               0x7fff224594ec
-               0x7fff22877994
-               0x7fff22874da8
-               _sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
+               0x7fffa200221c
+               main
+               |          
+               |--91.26%--parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+               |          |          
+               |          |--13.40%--Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+               |          |          |          
+               |          |          |--1.36%--std::pair<std::__detail::_Node_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, false, true>, bool> std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >(std::integral_constant<bool, true>, std::pai
+               |          |          |          |          
+               |          |          |           --0.69%--operator new(unsigned long)
+               |          |          |                     |          
+               |          |          |                      --0.59%--malloc
+               |          |          |          
+               |          |           --0.98%--std::_Hash_bytes(void const*, unsigned long, unsigned long)
+               |          |          
+               |          |--1.47%--std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+               |          |          
+               |          |--1.41%--cfree
+               |          |          
+               |          |--1.40%--operator new(unsigned long)
+               |          |          |          
+               |          |           --1.22%--malloc
+               |          |          
+               |           --0.64%--Video::Video(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, int, int)
+               |          
+               |--3.79%--SortedCompilation::SortedCompilation(std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Video, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> > > const&, std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > > const&)
+               |          |          
+               |           --1.35%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                     |          
+               |                      --1.09%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                                |          
+               |                                 --0.84%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                                           |          
+               |                                            --0.68%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |          
+               |--2.09%--void std::__sort<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |          |          
+               |           --1.56%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                     |          
+               |                      --1.29%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                |          
+               |                                 --0.94%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                           |          
+               |                                            --0.79%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                                      |          
+               |                                                       --0.60%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |          
+               |--1.51%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
+               |          |          
+               |           --0.54%--cfree
+               |          
+                --0.66%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
 
-    22.70%     0.00%  a.out    a.out                  [.] _start
-            |
-            ---_start
-               __libc_start_main
-               0x7fff224422a0
-               0x7fff224595e0
-               0x7fff224594ec
-               0x7fff22877994
-               0x7fff22874da8
-               _sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
-
-    22.70%     0.00%  a.out    libc.so.6              [.] __libc_start_main
+    99.97%     0.00%  a.out    libc.so.6              [.] __libc_start_main
             |
             ---__libc_start_main
-               0x7fff224422a0
-               0x7fff224595e0
-               0x7fff224594ec
-               0x7fff22877994
-               0x7fff22874da8
-               _sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
+               0x7fffa200221c
+               main
+               |          
+               |--91.26%--parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+               |          |          
+               |          |--13.40%--Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+               |          |          |          
+               |          |          |--1.36%--std::pair<std::__detail::_Node_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, false, true>, bool> std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >(std::integral_constant<bool, true>, std::pai
+               |          |          |          |          
+               |          |          |           --0.69%--operator new(unsigned long)
+               |          |          |                     |          
+               |          |          |                      --0.59%--malloc
+               |          |          |          
+               |          |           --0.98%--std::_Hash_bytes(void const*, unsigned long, unsigned long)
+               |          |          
+               |          |--1.47%--std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+               |          |          
+               |          |--1.41%--cfree
+               |          |          
+               |          |--1.40%--operator new(unsigned long)
+               |          |          |          
+               |          |           --1.22%--malloc
+               |          |          
+               |           --0.64%--Video::Video(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, int, int)
+               |          
+               |--3.79%--SortedCompilation::SortedCompilation(std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Video, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> > > const&, std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > > const&)
+               |          |          
+               |           --1.35%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                     |          
+               |                      --1.09%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                                |          
+               |                                 --0.84%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                                           |          
+               |                                            --0.68%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |          
+               |--2.09%--void std::__sort<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |          |          
+               |           --1.56%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                     |          
+               |                      --1.29%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                |          
+               |                                 --0.94%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                           |          
+               |                                            --0.79%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                                      |          
+               |                                                       --0.60%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |          
+               |--1.51%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
+               |          |          
+               |           --0.54%--cfree
+               |          
+                --0.66%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
 
-    22.70%     0.00%  a.out    libc.so.6              [.] 0x00007fff224422a0
+    99.97%     0.00%  a.out    libc.so.6              [.] 0x00007fffa200221c
             |
-            ---0x7fff224422a0
-               0x7fff224595e0
-               0x7fff224594ec
-               0x7fff22877994
-               0x7fff22874da8
-               _sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
+            ---0x7fffa200221c
+               main
+               |          
+               |--91.26%--parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+               |          |          
+               |          |--13.40%--Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+               |          |          |          
+               |          |          |--1.36%--std::pair<std::__detail::_Node_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, false, true>, bool> std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >(std::integral_constant<bool, true>, std::pai
+               |          |          |          |          
+               |          |          |           --0.69%--operator new(unsigned long)
+               |          |          |                     |          
+               |          |          |                      --0.59%--malloc
+               |          |          |          
+               |          |           --0.98%--std::_Hash_bytes(void const*, unsigned long, unsigned long)
+               |          |          
+               |          |--1.47%--std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+               |          |          
+               |          |--1.41%--cfree
+               |          |          
+               |          |--1.40%--operator new(unsigned long)
+               |          |          |          
+               |          |           --1.22%--malloc
+               |          |          
+               |           --0.64%--Video::Video(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, int, int)
+               |          
+               |--3.79%--SortedCompilation::SortedCompilation(std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Video, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> > > const&, std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > > const&)
+               |          |          
+               |           --1.35%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                     |          
+               |                      --1.09%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                                |          
+               |                                 --0.84%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                                           |          
+               |                                            --0.68%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |          
+               |--2.09%--void std::__sort<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |          |          
+               |           --1.56%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                     |          
+               |                      --1.29%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                |          
+               |                                 --0.94%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                           |          
+               |                                            --0.79%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                                      |          
+               |                                                       --0.60%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |          
+               |--1.51%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
+               |          |          
+               |           --0.54%--cfree
+               |          
+                --0.66%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
 
-    22.70%     0.00%  a.out    libc.so.6              [.] 0x00007fff224595e0
+    99.97%     0.00%  a.out    a.out                  [.] main
             |
-            ---0x7fff224595e0
-               0x7fff224594ec
-               0x7fff22877994
-               0x7fff22874da8
-               _sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
+            ---main
+               |          
+               |--91.26%--parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+               |          |          
+               |          |--13.40%--Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+               |          |          |          
+               |          |          |--1.36%--std::pair<std::__detail::_Node_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, false, true>, bool> std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >(std::integral_constant<bool, true>, std::pai
+               |          |          |          |          
+               |          |          |           --0.69%--operator new(unsigned long)
+               |          |          |                     |          
+               |          |          |                      --0.59%--malloc
+               |          |          |          
+               |          |           --0.98%--std::_Hash_bytes(void const*, unsigned long, unsigned long)
+               |          |          
+               |          |--1.47%--std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+               |          |          
+               |          |--1.41%--cfree
+               |          |          
+               |          |--1.40%--operator new(unsigned long)
+               |          |          |          
+               |          |           --1.22%--malloc
+               |          |          
+               |           --0.64%--Video::Video(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, int, int)
+               |          
+               |--3.79%--SortedCompilation::SortedCompilation(std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Video, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> > > const&, std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > > const&)
+               |          |          
+               |           --1.35%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                     |          
+               |                      --1.09%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                                |          
+               |                                 --0.84%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |                                           |          
+               |                                            --0.68%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+               |          
+               |--2.09%--void std::__sort<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |          |          
+               |           --1.56%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                     |          
+               |                      --1.29%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                |          
+               |                                 --0.94%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                           |          
+               |                                            --0.79%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |                                                      |          
+               |                                                       --0.60%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+               |          
+               |--1.51%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
+               |          |          
+               |           --0.54%--cfree
+               |          
+                --0.66%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
 
-    22.70%     0.00%  a.out    libc.so.6              [.] 0x00007fff224594ec
+    91.26%    69.67%  a.out    a.out                  [.] parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+            |          
+            |--69.67%--_start
+            |          __libc_start_main
+            |          0x7fffa200221c
+            |          main
+            |          parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+            |          
+             --21.59%--parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+                       |          
+                       |--13.40%--Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+                       |          |          
+                       |          |--1.36%--std::pair<std::__detail::_Node_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, false, true>, bool> std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >(std::integral_constant<bool, true>, std::pai
+                       |          |          |          
+                       |          |           --0.69%--operator new(unsigned long)
+                       |          |                     |          
+                       |          |                      --0.59%--malloc
+                       |          |          
+                       |           --0.98%--std::_Hash_bytes(void const*, unsigned long, unsigned long)
+                       |          
+                       |--1.47%--std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+                       |          
+                       |--1.41%--cfree
+                       |          
+                       |--1.40%--operator new(unsigned long)
+                       |          |          
+                       |           --1.22%--malloc
+                       |          
+                        --0.64%--Video::Video(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, int, int)
+
+    13.40%    10.10%  a.out    a.out                  [.] Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+            |          
+            |--10.10%--_start
+            |          __libc_start_main
+            |          0x7fffa200221c
+            |          main
+            |          parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+            |          Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+            |          
+             --3.30%--Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+                       |          
+                       |--1.36%--std::pair<std::__detail::_Node_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, false, true>, bool> std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >(std::integral_constant<bool, true>, std::pai
+                       |          |          
+                       |           --0.69%--operator new(unsigned long)
+                       |                     |          
+                       |                      --0.59%--malloc
+                       |          
+                        --0.98%--std::_Hash_bytes(void const*, unsigned long, unsigned long)
+
+     3.79%     1.43%  a.out    a.out                  [.] SortedCompilation::SortedCompilation(std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Video, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> > > const&, std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > > const&)
+            |          
+            |--2.36%--SortedCompilation::SortedCompilation(std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Video, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> > > const&, std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > > const&)
+            |          |          
+            |           --1.35%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+            |                     |          
+            |                      --1.09%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+            |                                |          
+            |                                 --0.84%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+            |                                           |          
+            |                                            --0.68%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+            |          
+             --1.43%--_start
+                       __libc_start_main
+                       0x7fffa200221c
+                       main
+                       SortedCompilation::SortedCompilation(std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Video, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> > > const&, std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > > const&)
+
+     3.00%     2.57%  a.out    libc.so.6              [.] cfree
+            |          
+             --2.57%--_start
+                       __libc_start_main
+                       0x7fffa200221c
+                       main
+                       |          
+                        --1.39%--parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+                                  |          
+                                   --1.35%--cfree
+
+     2.88%     0.19%  a.out    libstdc++.so.6.0.33    [.] operator new(unsigned long)
+            |          
+             --2.69%--operator new(unsigned long)
+                       |          
+                        --2.55%--malloc
+
+     2.55%     1.55%  a.out    libc.so.6              [.] malloc
+            |          
+            |--1.55%--_start
+            |          __libc_start_main
+            |          0x7fffa200221c
+            |          main
+            |          |          
+            |           --1.48%--parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+            |                     |          
+            |                      --0.89%--operator new(unsigned long)
+            |                                malloc
+            |          
+             --1.00%--malloc
+
+     2.09%     0.36%  a.out    a.out                  [.] void std::__sort<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+            |          
+             --1.73%--void std::__sort<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+                       |          
+                        --1.56%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+                                  |          
+                                   --1.29%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+                                             |          
+                                              --0.94%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+                                                        |          
+                                                         --0.79%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+                                                                   |          
+                                                                    --0.60%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+
+     1.56%     0.84%  a.out    a.out                  [.] void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+            |          
+            |--0.84%--_start
+            |          __libc_start_main
+            |          0x7fffa200221c
+            |          main
+            |          void std::__sort<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+            |          void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+            |          |          
+            |           --0.75%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+            |          
+             --0.73%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+                       |          
+                        --0.54%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)> >(__gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, __gnu_cxx::__normal_iterator<Video*, std::vector<Video, std::allocator<Video> > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(Video const&, Video const&)>)
+
+     1.51%     0.94%  a.out    a.out                  [.] std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
+            |          
+            |--0.94%--_start
+            |          __libc_start_main
+            |          0x7fffa200221c
+            |          main
+            |          std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
+            |          
+             --0.57%--std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
+                       |          
+                        --0.54%--cfree
+
+     1.47%     0.25%  a.out    libstdc++.so.6.0.33    [.] std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+            |          
+             --1.22%--std::basic_istream<char, std::char_traits<char> >& std::getline<char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, char)
+
+     1.36%     0.40%  a.out    a.out                  [.] std::pair<std::__detail::_Node_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, false, true>, bool> std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >(std::integral_constant<bool, true>, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>&&) [clone .isra.0]
+            |          
+             --0.96%--std::pair<std::__detail::_Node_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, false, true>, bool> std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_emplace<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >(std::integral_constant<bool, true>, std::pai
+                       |          
+                        --0.69%--operator new(unsigned long)
+                                  |          
+                                   --0.59%--malloc
+
+     1.35%     0.82%  a.out    a.out                  [.] void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)>) [clone .constprop.0]
+            |          
+            |--0.82%--_start
+            |          __libc_start_main
+            |          0x7fffa200221c
+            |          main
+            |          SortedCompilation::SortedCompilation(std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, Video, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> > > const&, std::unordered_map<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> > > const&)
+            |          void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+            |          |          
+            |           --0.71%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+            |                     |          
+            |                      --0.56%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+            |          
+             --0.53%--void std::__introsort_loop<__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, long, __gnu_cxx::__ops::_Iter_comp_iter<bool (*)(std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> const&)> >(__gnu_cxx::__normal_iterator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>*, std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > > >, __gnu_cxx::__normal_iterator
+
+     1.07%     1.07%  a.out    libstdc++.so.6.0.33    [.] std::_Hash_bytes(void const*, unsigned long, unsigned long)
             |
-            ---0x7fff224594ec
-               0x7fff22877994
-               0x7fff22874da8
-               _sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
+            ---_start
+               __libc_start_main
+               0x7fffa200221c
+               main
+               parseVideos(std::basic_ifstream<char, std::char_traits<char> >&, std::basic_ofstream<char, std::char_traits<char> >&, Compilation&)
+               Compilation::insertVideo(Video const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&)
+               |          
+                --0.98%--std::_Hash_bytes(void const*, unsigned long, unsigned long)
 
-    22.70%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22877994
+     0.66%     0.19%  a.out    a.out                  [.] std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::~_Hashtable()
+     0.65%     0.27%  a.out    a.out                  [.] Video::Video(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, int, int, int, int, int)
+     0.62%     0.62%  a.out    a.out                  [.] memcpy@plt
             |
-            ---0x7fff22877994
-               0x7fff22874da8
-               _sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
+            ---_start
+               __libc_start_main
+               0x7fffa200221c
+               main
 
-    22.70%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22874da8
+     0.58%     0.58%  a.out    libc.so.6              [.] 0x00000000000a3068
             |
-            ---0x7fff22874da8
-               _sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
+            ---_start
+               __libc_start_main
+               0x7fffa200221c
+               main
 
-    22.70%     0.00%  a.out    a.out                  [.] _sub_D_00100_1
+     0.58%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083068
             |
-            ---_sub_D_00100_1
-               __gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
+            ---0x7fffa2083068
 
-    22.70%     0.00%  a.out    a.out                  [.] __gcov_exit
-            |
-            ---__gcov_exit
-               gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
-
-    22.70%     0.00%  a.out    a.out                  [.] gcov_do_dump.constprop.0
-            |
-            ---gcov_do_dump.constprop.0
-               fseek
-               _IO_file_seekoff
-
-    22.70%     0.00%  a.out    libc.so.6              [.] fseek
-            |
-            ---fseek
-               _IO_file_seekoff
-
-    22.03%    22.03%  a.out    ld-linux-aarch64.so.1  [.] 0x000000000000c09c
-            |
-            ---0x7fff2288e354
-               0x7fff2288a408
-               0x7fff22889028
-               0x7fff2288bcfc
-               0x7fff22881428
-               0x7fff2288013f
-               0x7fff2288009c
-
-    22.03%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288009c
-            |
-            ---0x7fff2288009c
-
-    21.17%    21.17%  a.out    ld-linux-aarch64.so.1  [.] 0x000000000000c0b8
-            |
-            ---0x7fff2288e354
-               0x7fff2288a408
-               0x7fff22889028
-               0x7fff2288bcfc
-               0x7fff22881428
-               0x7fff2288013f
-               0x7fff228800b8
-
-    21.17%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff228800b8
-            |
-            ---0x7fff228800b8
-
-    21.09%    21.09%  a.out    ld-linux-aarch64.so.1  [.] 0x00000000000082d0
-            |
-            ---0x7fff2288e354
-               0x7fff2288a408
-               0x7fff22889028
-               0x7fff2288bcfc
-               0x7fff22881428
-               0x7fff22880140
-               0x7fff2287c2d0
-
-    21.09%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2287c2d0
-            |
-            ---0x7fff2287c2d0
-
-    11.78%    11.78%  a.out    ld-linux-aarch64.so.1  [.] 0x00000000000082b4
-            |
-            ---0x7fff2288e354
-               0x7fff2288a408
-               0x7fff22889028
-               0x7fff2288bc90
-               0x7fff22881428
-               0x7fff22880140
-               0x7fff2287c2b4
-
-    11.78%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288bc90
-            |
-            ---0x7fff2288bc90
-               0x7fff22881428
-               0x7fff22880140
-               0x7fff2287c2b4
-
-    11.78%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2287c2b4
-            |
-            ---0x7fff2287c2b4
-
-     1.16%     1.16%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000009814
-            |
-            ---0x7fff2288e354
-               0x7fff2288a408
-               0x7fff22889028
-               0x7fff2288ae34
-               0x7fff2287d814
-
-     1.16%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288ae34
-            |
-            ---0x7fff2288ae34
-               0x7fff2287d814
-
-     1.16%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2287d814
-            |
-            ---0x7fff2287d814
-
-     0.07%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288e353
-     0.07%     0.07%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000015ed4
-     0.07%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22889ed4
-     0.00%     0.00%  a.out    [unknown]              [.] 0xffffd06fce411550
-     0.00%     0.00%  a.out    [unknown]              [k] 0xffffd06fcf1df58c
-     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22889e8c
-     0.00%     0.00%  a.out    [unknown]              [.] 0xffffd06fcf1e01c4
-     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000015e80
-     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22889e80
-     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff2288e340
+     0.41%     0.03%  a.out    libstdc++.so.6.0.33    [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_append(char const*, unsigned long)
+     0.36%     0.00%  a.out    a.out                  [.] std::vector<Video, std::allocator<Video> >::~vector()
+     0.36%     0.36%  a.out    libc.so.6              [.] memcmp
+     0.35%     0.35%  a.out    libc.so.6              [.] 0x00000000000a3094
+     0.35%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083094
+     0.32%     0.32%  a.out    libc.so.6              [.] 0x00000000000a2b34
+     0.32%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2082b34
+     0.32%     0.32%  a.out    libc.so.6              [.] 0x00000000000a3084
+     0.32%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083084
+     0.28%     0.11%  a.out    a.out                  [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::_M_mutate(unsigned long, unsigned long, char const*, unsigned long)
+     0.24%     0.24%  a.out    libc.so.6              [.] 0x00000000000a2b20
+     0.24%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2082b20
+     0.24%     0.24%  a.out    libc.so.6              [.] 0x00000000000a305c
+     0.24%     0.00%  a.out    libc.so.6              [.] 0x00007fffa208305c
+     0.24%     0.24%  a.out    libc.so.6              [.] 0x00000000000a306c
+     0.24%     0.00%  a.out    libc.so.6              [.] 0x00007fffa208306c
+     0.22%     0.03%  a.out    a.out                  [.] std::vector<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, int> > >::~vector()
+     0.21%     0.21%  a.out    a.out                  [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >::push_back(char)
+     0.21%     0.21%  a.out    libc.so.6              [.] 0x00000000000a3040
+     0.21%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083040
+     0.19%     0.19%  a.out    a.out                  [.] viewsCompare(Video const&, Video const&)
+     0.18%     0.18%  a.out    libc.so.6              [.] 0x00000000000a3054
+     0.18%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083054
+     0.17%     0.17%  a.out    libc.so.6              [.] 0x0000000000095024
+     0.17%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075024
+     0.17%     0.17%  a.out    a.out                  [.] operator new(unsigned long)@plt
+     0.16%     0.16%  a.out    libc.so.6              [.] 0x0000000000045938
+     0.16%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025938
+     0.15%     0.15%  a.out    libc.so.6              [.] 0x00000000000a307c
+     0.15%     0.00%  a.out    libc.so.6              [.] 0x00007fffa208307c
+     0.14%     0.14%  a.out    libc.so.6              [.] 0x00000000000a30d4
+     0.14%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20830d4
+     0.14%     0.14%  a.out    libstdc++.so.6.0.33    [.] malloc@plt
+     0.13%     0.13%  a.out    libc.so.6              [.] 0x00000000000a3098
+     0.13%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083098
+     0.13%     0.13%  a.out    libstdc++.so.6.0.33    [.] operator delete(void*)@plt
+     0.12%     0.12%  a.out    libc.so.6              [.] 0x0000000000045940
+     0.12%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025940
+     0.12%     0.12%  a.out    libc.so.6              [.] 0x00000000000a3148
+     0.12%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083148
+     0.12%     0.09%  a.out    a.out                  [.] std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, int>, true>*, unsigned long)
+     0.11%     0.11%  a.out    libc.so.6              [.] 0x00000000000a3078
+     0.11%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083078
+     0.11%     0.11%  a.out    libc.so.6              [.] 0x000000000004585c
+     0.11%     0.00%  a.out    libc.so.6              [.] 0x00007fffa202585c
+     0.10%     0.10%  a.out    a.out                  [.] dislikesCompare(Video const&, Video const&)
+     0.09%     0.09%  a.out    libc.so.6              [.] 0x00000000000a3080
+     0.09%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083080
+     0.09%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2076178
+     0.08%     0.08%  a.out    libc.so.6              [.] 0x0000000000095e3c
+     0.08%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075e3c
+     0.08%     0.03%  a.out    a.out                  [.] std::enable_if<std::__and_<std::__not_<std::__is_tuple_like<Video> >, std::is_move_constructible<Video>, std::is_move_assignable<Video> >::value, void>::type std::swap<Video>(Video&, Video&)
+     0.08%     0.08%  a.out    libstdc++.so.6.0.33    [.] operator delete(void*)
+     0.08%     0.08%  a.out    libc.so.6              [.] 0x0000000000096060
+     0.08%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2076060
+     0.08%     0.08%  a.out    libc.so.6              [.] 0x00000000000a3150
+     0.08%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083150
+     0.08%     0.02%  a.out    libstdc++.so.6.0.33    [.] std::basic_filebuf<char, std::char_traits<char> >::underflow()
+     0.08%     0.00%  a.out    [unknown]              [.] 0xffffd06fce411550
+     0.07%     0.07%  a.out    libc.so.6              [.] 0x00000000000a30d8
+     0.07%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20830d8
+     0.07%     0.07%  a.out    libstdc++.so.6.0.33    [.] free@plt
+     0.07%     0.07%  a.out    libc.so.6              [.] 0x00000000000a3060
+     0.07%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083060
+     0.06%     0.06%  a.out    libc.so.6              [.] 0x00000000000458ec
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20258ec
+     0.06%     0.06%  a.out    libc.so.6              [.] 0x0000000000096278
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2076278
+     0.06%     0.06%  a.out    [unknown]              [k] 0xffffd06fcf1dfd78
+     0.06%     0.00%  a.out    libstdc++.so.6.0.33    [.] std::__basic_file<char>::xsgetn(char*, long)
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa206261c
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20625fc
+     0.06%     0.00%  a.out    [unknown]              [.] 0xffffd06fcf1e0230
+     0.06%     0.06%  a.out    libc.so.6              [.] 0x00000000000458f4
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20258f4
+     0.06%     0.06%  a.out    a.out                  [.] likesCompare(Video const&, Video const&)
+     0.06%     0.06%  a.out    libc.so.6              [.] 0x00000000000a3048
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083048
+     0.06%     0.06%  a.out    libc.so.6              [.] 0x0000000000144180
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2073777
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2124180
+     0.06%     0.06%  a.out    a.out                  [.] std::_Hash_bytes(void const*, unsigned long, unsigned long)@plt
+     0.06%     0.06%  a.out    libc.so.6              [.] 0x00000000000a2b38
+     0.06%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2082b38
+     0.05%     0.05%  a.out    libc.so.6              [.] 0x00000000000a3144
+     0.05%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083144
+     0.05%     0.05%  a.out    libc.so.6              [.] 0x0000000000045910
+     0.05%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025910
+     0.05%     0.05%  a.out    libc.so.6              [.] 0x0000000000045864
+     0.05%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025864
+     0.05%     0.05%  a.out    libc.so.6              [.] 0x000000000004590c
+     0.05%     0.00%  a.out    libc.so.6              [.] 0x00007fffa202590c
+     0.05%     0.05%  a.out    libc.so.6              [.] 0x0000000000045968
+     0.05%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025968
+     0.05%     0.05%  a.out    libc.so.6              [.] 0x0000000000095014
+     0.05%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075014
+     0.05%     0.05%  a.out    a.out                  [.] operator delete(void*, unsigned long)@plt
+     0.05%     0.05%  a.out    libc.so.6              [.] 0x00000000000a30ac
+     0.05%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20830ac
+     0.04%     0.04%  a.out    libc.so.6              [.] 0x00000000000964e8
+     0.04%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20764e8
+     0.04%     0.04%  a.out    libc.so.6              [.] 0x0000000000092ff0
+     0.04%     0.00%  a.out    libc.so.6              [.] 0x00007fffa207683f
+     0.04%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2072ff0
+     0.04%     0.04%  a.out    libc.so.6              [.] __isoc23_strtol
+     0.04%     0.02%  a.out    libstdc++.so.6.0.33    [.] std::ostream::flush()
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x0000000000094fec
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2074fec
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x00000000000458b0
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20258b0
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x00000000000a2b58
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2082b58
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x00000000000a316c
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa208316c
+     0.03%     0.03%  a.out    libstdc++.so.6.0.33    [.] std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long, unsigned long) const
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x00000000000964b8
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20764b8
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x000000000009506c
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa207506c
+     0.03%     0.03%  a.out    libstdc++.so.6.0.33    [.] operator delete(void*, unsigned long)
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x00000000000a313c
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa208313c
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x00000000000a3164
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083164
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x000000000009615c
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa207615c
+     0.03%     0.03%  a.out    libc.so.6              [.] 0x0000000000095fcc
+     0.03%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075fcc
+     0.02%     0.02%  a.out    libstdc++.so.6.0.33    [.] std::ostream::sentry::sentry(std::ostream&)
+     0.02%     0.00%  a.out    libstdc++.so.6.0.33    [.] std::basic_ostream<char, std::char_traits<char> >& std::__ostream_insert<char, std::char_traits<char> >(std::basic_ostream<char, std::char_traits<char> >&, char const*, long)
+     0.02%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2497194
+     0.02%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2493248
+     0.02%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2491e68
+     0.02%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa248a268
+     0.02%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2494bc4
+     0.02%     0.02%  a.out    a.out                  [.] std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > std::operator+<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&&)
+     0.02%     0.00%  a.out    a.out                  [.] printVideoData[abi:cxx11](Video const&)
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x000000000009502c
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa207502c
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a3050
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083050
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000094f2c
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2074f2c
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a4058
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2084058
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000094fe8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2074fe8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000950b4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20750b4
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000094f48
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2074f48
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095068
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075068
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095140
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075140
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095074
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075074
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000950a0
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20750a0
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000093678
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20765b8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2073678
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a3138
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083138
+     0.02%     0.02%  a.out    libstdc++.so.6.0.33    [.] std::istream::sentry::sentry(std::istream&, bool)@plt
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a2b44
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2082b44
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000045964
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025964
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000964dc
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20764dc
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a308c
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa208308c
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a30a8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20830a8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000045918
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025918
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095dc8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075dc8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a2ae4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2082ae4
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000045878
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025878
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095bc0
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075bc0
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000938a4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20738a4
+     0.02%     0.02%  a.out    a.out                  [.] std::_Hashtable<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video>, std::allocator<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video> >, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::hash<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true> >::_M_insert_unique_node(unsigned long, unsigned long, std::__detail::_Hash_node<std::pair<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const, Video>, true>*, unsigned long)
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095df8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075df8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095fc0
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075fc0
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000457f8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20257f8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a3090
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083090
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000964c0
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20764c0
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095e0c
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075e0c
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095fd4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075fd4
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000936c8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20738a8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20736c8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095dd8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075dd8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000045818
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025818
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095fa4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075fa4
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095fa0
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075fa0
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095f88
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075f88
+     0.02%     0.02%  a.out    a.out                  [.] memcmp@plt
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000045800
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025800
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095f54
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075f54
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000967f4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20767f4
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095eb4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075eb4
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a3074
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083074
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095d1c
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075d1c
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095f78
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075f78
+     0.02%     0.02%  a.out    libstdc++.so.6.0.33    [.] std::istream::sentry::sentry(std::istream&, bool)
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000045984
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025984
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095bdc
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075bdc
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000960f0
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20760f0
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000094fe0
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2074fe0
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000961d8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20761d8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a3058
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2083058
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a2b30
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2082b30
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095bbc
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075bbc
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a30b4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20830b4
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000096130
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2076130
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000094ec8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2074ec8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000096834
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2076834
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a304c
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa208304c
+     0.02%     0.02%  a.out    [unknown]              [k] 0xffffd06fcf1df58c
+     0.02%     0.00%  a.out    [unknown]              [.] 0xffffd06fcf1e01c4
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2076964
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000095ef8
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075ef8
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x00000000000a314c
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa208314c
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x000000000009683c
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa207683c
+     0.02%     0.02%  a.out    libc.so.6              [.] 0x0000000000045960
+     0.02%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2025960
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000096850
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2076850
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x00000000000458b8
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa20258b8
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000095d88
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075d88
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000095bac
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075bac
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2488f80
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000096360
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2076360
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000095ddc
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075ddc
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x00000000000a2b64
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2082b64
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000095e5c
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075e5c
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000095fb4
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075fb4
+     0.01%     0.01%  a.out    libstdc++.so.6.0.33    [.] memcpy@plt
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000095f80
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075f80
+     0.01%     0.01%  a.out    libc.so.6              [.] 0x0000000000095be0
+     0.01%     0.00%  a.out    libc.so.6              [.] 0x00007fffa2075be0
+     0.01%     0.01%  a.out    ld-linux-aarch64.so.1  [.] 0x000000000000cedc
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2488f7f
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2488edc
+     0.01%     0.01%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000009118
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa24971e0
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2480aa0
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa248098c
+     0.01%     0.00%  a.out    libstdc++.so.6.0.33    [.] 0x00007fffa2295120
+     0.01%     0.00%  a.out    libstdc++.so.6.0.33    [.] std::ios_base_library_init()
+     0.01%     0.00%  a.out    libstdc++.so.6.0.33    [.] std::locale::locale()
+     0.01%     0.00%  a.out    libstdc++.so.6.0.33    [.] 0x00007fffa22c83a4
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa248c74c
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa248a37c
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2485118
+     0.01%     0.01%  a.out    ld-linux-aarch64.so.1  [.] 0x00000000000092e4
+     0.01%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa24852e4
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000008994
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2494b58
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa24851b4
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2484994
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000018d90
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2493c9b
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2494d90
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2497193
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000017144
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2493144
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2492ccc
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000016c90
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2492c90
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fffa2497180
+     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x000000000001b180
      0.00%     0.00%  a.out    [unknown]              [k] 0xffffd06fcf1dfbb8
-     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x0000000000015e50
      0.00%     0.00%  a.out    [unknown]              [.] 0xffffd06fcf1e01dc
-     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x000000000001a340
-     0.00%     0.00%  a.out    ld-linux-aarch64.so.1  [.] 0x00007fff22889e50
 
 
 #
