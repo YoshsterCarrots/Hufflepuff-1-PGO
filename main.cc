@@ -26,17 +26,20 @@ int main() {
 
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
-	cerr << "US DONE" << endl;
+	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 	videos = ifstream ("CAvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
-	cerr << "CA DONE" << endl;
+	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 	videos = ifstream ("GBvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
-	cerr << "GB DONE" << endl;
+	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 	
 	SortedCompilation Full_Comp(INTL_Comp.compilation, INTL_Comp.tags);
 	
@@ -109,6 +112,7 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 	string currLine;
 
 	getline(videos, currLine);
+	long startTime = clock();
 	while (getline(videos, currLine)) {
 		int commaCount = 0;
 		bool isInQuote = false;
@@ -200,10 +204,12 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		outputFile << ' ' << stoi(currViews) << ' ' << stoi(currLikes) << ' ' << stoi(currDislikes) << ' ' << stoi(currCommCount);
 		outputFile << '\n';
 		*/
-		currTrendDate = to_string(currTrendDate.at(0)) + currTrendDate.at(1) + currTrendDate.at(6) + currTrendDate.at(7) + currTrendDate.at(3) + currTrendDate.at(4);
+		currTrendDate = string() + currTrendDate.at(0) + currTrendDate.at(1) + currTrendDate.at(6) + currTrendDate.at(7) + currTrendDate.at(3) + currTrendDate.at(4);
 		Video tempVideo(currTitle, currChannel, currPubTime, currID, stoi(currTrendDate), stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
 		comp.insertVideo(tempVideo, currTitle, currTagList);
 	}
+	long endTime = clock();
+	cerr << endTime - startTime << " microseconds" << endl;
 }
 
 string printVideoData(const Video& video) {
