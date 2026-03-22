@@ -5,8 +5,11 @@
 #include <fstream>        // IWYU pragma: keep
 #include <unordered_map>  // IWYU pragma: keep
 #include "SortedCompilation.h" //IWYU pragma: keep
+#include <chrono>
 //#include <functional>     // IWYU pragma: keep
 using namespace std;
+using namespace std::chrono;
+using sc = steady_clock;
 
 void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
 
@@ -14,6 +17,7 @@ string printVideoData(const Video& video);
 //void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
 
 int main() {
+	auto start = sc::now();
 	ifstream videos("USvideos.csv");
 	ofstream outputFile("compiledVideos.txt");
 
@@ -23,7 +27,7 @@ int main() {
 	Compilation INTL_Comp(INTERNATIONAL);
 	INTL_Comp.compilation.reserve(30800);
 	INTL_Comp.tags.reserve(186000);
-
+	
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
@@ -40,6 +44,8 @@ int main() {
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+	auto parse = sc::now();
+	cerr << "Parsing time: " << (duration<double>(parse - start)).count() << endl;
 	
 	SortedCompilation Full_Comp(INTL_Comp.compilation, INTL_Comp.tags);
 	
@@ -94,6 +100,9 @@ int main() {
 	}
 
 	outputFile.close();
+
+	auto end = sc::now();
+	cerr << "Full time: " << (duration<double>(end - start)).count() << endl;
 }
 
 
@@ -118,13 +127,13 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		bool isInQuote = false;
 		bool isAvailable = true;
 		for (char c : currLine) {
-			if (commaCount == 14) {
+			if (commaCount == 14) [[unlikely]] {
 				if (c == 'T') {
 					isAvailable = false;
 				}
 				break;
 			}
-			else if (c == '"') {
+			else if (c == '"') [[likely]] {
 				isInQuote = !isInQuote;
 			}
 			else if (!isInQuote && c == ',') {
@@ -148,10 +157,10 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		string currDislikes = "";
 		string currCommCount = "";
 		for (char c : currLine) {
-			if (c == '"') {
+			if (c == '"') [[unlikely]] {
 				isInQuote = !isInQuote;
 			}
-			else if (!isInQuote && c == ',') {
+			else if (!isInQuote && c == ',') [[unlikely]] {
 				if (currTag != "") {
 					currTagList.push_back(currTag);
 					currTag = "";
@@ -173,7 +182,7 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 			else if (commaCount == 5) {
 				currPubTime += c;
 			}
-			else if (commaCount == 6) {
+			else if (commaCount == 6) [[likely]] {
 				if (!isInQuote && c == '|') {
 					currTagList.push_back(currTag);
 					currTag = "";

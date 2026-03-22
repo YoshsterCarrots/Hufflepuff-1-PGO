@@ -10,7 +10,7 @@ void Compilation::insertVideo(const Video &newVideo, const std::string &newVidTi
 	//check if already exists
 	int newTrendingTimes = 1;
 	bool repeat = false;
-	if (compilation.contains(newVidTitle)) {
+	if (compilation.contains(newVidTitle)) [[likely]] {
 		newTrendingTimes = compilation.at(newVidTitle).timesTrending + 1;
 		repeat = true;
 		if (newVideo.trendingDate > compilation.at(newVidTitle).trendingDate) {
@@ -18,7 +18,7 @@ void Compilation::insertVideo(const Video &newVideo, const std::string &newVidTi
 			compilation.at(newVidTitle).timesTrending = newTrendingTimes;
 		}
 	}
-	else {
+	else [[unlikely]] {
 		compilation.insert({newVidTitle, newVideo});
 	}
 
@@ -27,8 +27,10 @@ void Compilation::insertVideo(const Video &newVideo, const std::string &newVidTi
 
 	if (!repeat) {
 		for (const std::string &tag : newTags) {
-			if (tags.contains(tag)) tags.at(tag)++;
-			else tags.insert({tag, 1});
+			if (tags.contains(tag)) [[likely]]
+				tags.at(tag)++;
+			else [[unlikely]]
+				tags.insert({tag, 1});
 		}
 	}
 

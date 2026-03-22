@@ -8,26 +8,64 @@ EFLAGS= -std=c++26 -O3 -fprofile-use
 FFLAGS= -std=c++26 -O3 -fprofile-use -flto 
 GFLAGS= -std=c++26 -O3 -fprofile-use -flto
 
-EMFLAGS= -std=c++26 -O3 -fprofile-generate
+ProfGenFLAGS= -std=c++26 -O3 -fprofile-generate
 ProfFLAGS= -std=c++26 -O3 -fprofile-use
 
 a.out: main.o SortedCompilation.o Compilation.o Video.o
-	g++ $(FFLAGS) main.o SortedCompilation.o Compilation.o Video.o
+	g++ $(AFLAGS) main.o SortedCompilation.o Compilation.o Video.o
+
+SafeNSlow.out:
+	DBFLAGS= -g -std=c++20 -fsanitize=address -fsanitize=undefined -O0 --coverage
+	CCFLAGS= DBFLAGS
+	a.out
+
+PGOProfile.out:
+	CCFLAGS= ProfGenFLAGS
+	a.out
+
+PGOUse.out:
+	CCFLAGS= ProfFLAGS
+	a.out
+
+A_Bench.out:
+	CCFLAGS= AFLAGS
+	a.out
+
+B_Bench.out:
+	CCFLAGS= BFLAGS
+	a.out
+
+C_Bench.out:
+	CCFLAGS= CFLAGS
+	a.out
+
+D_Bench.out:
+	CCFLAGS= DFLAGS
+	a.out
+
+E_Bench.out:
+	CCFLAGS= EFLAGS
+	a.out
+
+F_Bench.out:
+	CCFLAGS= FFLAGS
+	a.out
+
+G_Bench.out:
+	CCFLAGS= GFLAGS
+	a.out
 
 main.o: main.cc
-	g++ $(FFLAGS) -c main.cc
+	g++ $(CCFLAGS) -c main.cc
 
 SortedCompilation.o: SortedCompilation.cc SortedCompilation.h Compilation.o Video.o
-	g++ $(FFLAGS) -c SortedCompilation.h SortedCompilation.cc
+	g++ $(CCFLAGS) -c SortedCompilation.h SortedCompilation.cc
 
 Compilation.o: Compilation.cc Compilation.h Video.o
-	g++ $(FFLAGS) -c Compilation.h Compilation.cc
+	g++ $(CCFLAGS) -c Compilation.h Compilation.cc
 
 Video.o: Video.cc Video.h
-	g++ $(FFLAGS) -c Video.h Video.cc
+	g++ $(CCFLAGS) -c Video.h Video.cc
 
 clean:
-	rm -f a.out core *.o compiledVideos.txt
-
-extrasuperclean:
 	rm -f a.out core *.o *.gcda *.gcno *.gcov *.gch compiledVideos.txt
