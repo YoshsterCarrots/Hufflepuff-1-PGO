@@ -11,6 +11,8 @@ using namespace std;
 using namespace std::chrono;
 using sc = steady_clock;
 
+//int DEBUG_COUNT = 0;
+
 void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
 
 string printVideoData(const Video& video);
@@ -25,8 +27,8 @@ int main() {
 	//unordered_map<string, int> allTags;
 
 	Compilation INTL_Comp(INTERNATIONAL);
-	INTL_Comp.compilation.reserve(30800);
-	INTL_Comp.tags.reserve(186000);
+	//INTL_Comp.compilation.reserve(30800);
+	//INTL_Comp.tags.reserve(186000);
 	
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
@@ -42,6 +44,28 @@ int main() {
 	videos = ifstream ("GBvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+
+	videos = ifstream ("DEvideos.csv");
+	parseVideos(videos, outputFile, INTL_Comp);
+
+	//videos = ifstream ("FRvideos.csv");
+	//parseVideos(videos, outputFile, INTL_Comp);
+
+	videos = ifstream ("INvideos.csv");
+	parseVideos(videos, outputFile, INTL_Comp);
+
+	videos = ifstream ("JPvideos.csv");
+	parseVideos(videos, outputFile, INTL_Comp);
+
+	videos = ifstream ("KRvideos.csv");
+	parseVideos(videos, outputFile, INTL_Comp);
+
+	videos = ifstream ("MXvideos.csv");
+	parseVideos(videos, outputFile, INTL_Comp);
+
+	videos = ifstream ("RUvideos.csv");
+	parseVideos(videos, outputFile, INTL_Comp);
+
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 	auto parse = sc::now();
@@ -119,6 +143,7 @@ int main() {
 
 void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 	string currLine;
+	//DEBUG_COUNT = 0;
 
 	getline(videos, currLine);
 	long startTime = clock();
@@ -213,6 +238,8 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		outputFile << ' ' << stoi(currViews) << ' ' << stoi(currLikes) << ' ' << stoi(currDislikes) << ' ' << stoi(currCommCount);
 		outputFile << '\n';
 		*/
+
+		//cerr << ++DEBUG_COUNT << endl;
 		currTrendDate = string() + currTrendDate.at(0) + currTrendDate.at(1) + currTrendDate.at(6) + currTrendDate.at(7) + currTrendDate.at(3) + currTrendDate.at(4);
 		Video tempVideo(currTitle, currChannel, currPubTime, currID, stoi(currTrendDate), stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
 		comp.insertVideo(tempVideo, currTitle, currTagList);

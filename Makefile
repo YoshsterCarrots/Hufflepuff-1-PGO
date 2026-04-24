@@ -3,7 +3,7 @@ CCFLAGS= -g -std=c++26 -fsanitize=address -fsanitize=undefined -O0 --coverage
 AFLAGS= -std=c++26 -fsanitize=address -fsanitize=undefined -O0
 BFLAGS= -std=c++26 -O0
 CFLAGS= -std=c++26 -fsanitize=address -fsanitize=undefined -O3
-DFLAGS= -std=c++26 -O3 
+DFLAGS= -std=c++26 -O3
 EFLAGS= -std=c++26 -O3 -fprofile-use
 FFLAGS= -std=c++26 -O3 -fprofile-use -flto 
 GFLAGS= -std=c++26 -O3 -fprofile-use -flto
@@ -12,19 +12,19 @@ EMFLAGS= -std=c++26 -O3 -fprofile-generate
 ProfFLAGS= -std=c++26 -O3 -fprofile-use
 
 a.out: main.o SortedCompilation.o Compilation.o Video.o
-	g++ $(FFLAGS) main.o SortedCompilation.o Compilation.o Video.o
+	g++ $(DFLAGS) main.o SortedCompilation.o Compilation.o Video.o
 
 main.o: main.cc
-	g++ $(FFLAGS) -c main.cc
+	g++ $(DFLAGS) -c main.cc
 
 SortedCompilation.o: SortedCompilation.cc SortedCompilation.h Compilation.o Video.o
-	g++ $(FFLAGS) -c SortedCompilation.h SortedCompilation.cc
+	g++ $(DFLAGS) -c SortedCompilation.h SortedCompilation.cc
 
 Compilation.o: Compilation.cc Compilation.h Video.o
-	g++ $(FFLAGS) -c Compilation.h Compilation.cc
+	g++ $(DFLAGS) -c Compilation.h Compilation.cc
 
 Video.o: Video.cc Video.h
-	g++ $(FFLAGS) -c Video.h Video.cc
+	g++ $(DFLAGS) -c Video.h Video.cc
 
 clean:
 	rm -f a.out core *.o compiledVideos.txt
