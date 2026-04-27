@@ -6,6 +6,7 @@
 #include <unordered_map>  // IWYU pragma: keep
 #include "SortedCompilation.h" //IWYU pragma: keep
 #include <chrono>
+#include <omp.h>
 //#include <functional>     // IWYU pragma: keep
 using namespace std;
 using namespace std::chrono;
@@ -20,51 +21,67 @@ string printVideoData(const Video& video);
 
 int main() {
 	auto start = sc::now();
-	ifstream videos("USvideos.csv");
+	ifstream videos;
 	ofstream outputFile("compiledVideos.txt");
 
 	//unordered_map<string, Video> allVideos;
 	//unordered_map<string, int> allTags;
-
+	
 	Compilation INTL_Comp(INTERNATIONAL);
 	//INTL_Comp.compilation.reserve(30800);
 	//INTL_Comp.tags.reserve(186000);
 	
-	parseVideos(videos, outputFile, INTL_Comp);
-	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
-	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
-	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+	#pragma omp parallel sections num_threads(4) private(videos)
+	{
+		#pragma omp section 
+		{
+			videos = ifstream("USvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp);
+			//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+			//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+			//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
-	videos = ifstream ("CAvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
-	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
-	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+			//videos = ifstream ("CAvideos.csv");
+			//parseVideos(videos, outputFile, INTL_Comp);
+			//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+			//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
+			//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
-	videos = ifstream ("GBvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+			videos = ifstream ("GBvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp);
+			//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
+		}
 
-	videos = ifstream ("DEvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+		#pragma omp section 
+		{
+			videos = ifstream ("DEvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp);
 
-	//videos = ifstream ("FRvideos.csv");
-	//parseVideos(videos, outputFile, INTL_Comp);
+			//videos = ifstream ("FRvideos.csv");
+			//parseVideos(videos, outputFile, INTL_Comp);
 
-	videos = ifstream ("INvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+			videos = ifstream ("INvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp);
+		}
 
-	videos = ifstream ("JPvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+		#pragma omp section 
+		{
+			videos = ifstream ("JPvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp);
 
-	videos = ifstream ("KRvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+			videos = ifstream ("KRvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp);
+		}
 
-	videos = ifstream ("MXvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+		#pragma omp section 
+		{
+			videos = ifstream ("MXvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp);
 
-	videos = ifstream ("RUvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+			videos = ifstream ("RUvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp);
+		}
+	}
 
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
@@ -242,7 +259,11 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		//cerr << ++DEBUG_COUNT << endl;
 		currTrendDate = string() + currTrendDate.at(0) + currTrendDate.at(1) + currTrendDate.at(6) + currTrendDate.at(7) + currTrendDate.at(3) + currTrendDate.at(4);
 		Video tempVideo(currTitle, currChannel, currPubTime, currID, stoi(currTrendDate), stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
-		comp.insertVideo(tempVideo, currTitle, currTagList);
+
+		#pragma omp critical(INSERT)
+		{
+			comp.insertVideo(tempVideo, currTitle, currTagList);
+		}
 	}
 	long endTime = clock();
 	cerr << endTime - startTime << " microseconds" << endl;
