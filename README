@@ -56,15 +56,15 @@ Person 2 - The Tester
 	B. Figure out what the output of the program should be for each one
 	C. Run the code (with gcov coverage on) and verify all test cases are passed
 	D. If your code takes input, write input tests for those as well, both good, bad, and edge.
-3. Validate that you have 100% coverage for every branch and loop in the code using Gcov. In other words, if you start with a clean Gcov slate and run all the tests, it should show every line of code getting exercised by your tests
-4. Generate an HTML version of your Gcov report and attach it in the report of The Instrumenter.
-5. If you find bugs in the code, report them to The Data Scientist to fix
+X3. Validate that you have 100% coverage for every branch and loop in the code using Gcov. In other words, if you start with a clean Gcov slate and run all the tests, it should show every line of code getting exercised by your tests
+X4. Generate an HTML version of your Gcov report and attach it in the report of The Instrumenter.
+X5. If you find bugs in the code, report them to The Data Scientist to fix
 
 ===============================================================================================
 
-Person 3 - The Instrumenter
+XPerson 3 - The Instrumenter
 
-1. Your job is to collect timing data for each part of the code and to write a report that will be submitted on Canvas showing how long the program takes to run with all the different options of:
+X1. Your job is to collect timing data for each part of the code and to write a report that will be submitted on Canvas showing how long the program takes to run with all the different options of:
 	A. Optimizer off, ASAN and UBSAN on
 	B. Optimizer off, ASAN and UBSAN off
 	C. O3 Optimizer on, ASAN and UBSAN on
@@ -74,9 +74,9 @@ Person 3 - The Instrumenter
 	F. PGO + LTO + O3 on, ASAN and UBSAN off
 	G. Likely+Unlikely + PGO + LTO + O3 on, ASAN and UBSAN off
 
-2. Collect end to end timing by running "time a.out" and parse the output of time and report it to me in human readable format for each of these optimization options
+X2. Collect end to end timing by running "time a.out" and parse the output of time and report it to me in human readable format for each of these optimization options
 
-3. For each of these optimization options, report how long the most important loop in your code takes to run. You can either time the loop using the C way with clock() or the C++ way with chrono.
+X3. For each of these optimization options, report how long the most important loop in your code takes to run. You can either time the loop using the C way with clock() or the C++ way with chrono.
 	A. Call clock() before the loop then after the loop and subtract the results to get how many microseconds the loop took to run. This is the C way of timing code.
 	B. The C++ way uses the chrono library. Here's some demo code:
 #include <iostream>
@@ -93,36 +93,36 @@ int main() {
     cerr << (duration<double>(end - start)).count() << endl;
 }
 
-This code above will print out how long the for loop took to run.
+XThis code above will print out how long the for loop took to run.
 
-Report how long your most important loop takes to run with all of the above compilation options (A-G)
+XReport how long your most important loop takes to run with all of the above compilation options (A-G)
 
-4. For any important branches inside of the for loop, try using the [[likely]] or [[unlikely]] tags and see if that affects the running time. This is optimization option G above.
+X4. For any important branches inside of the for loop, try using the [[likely]] or [[unlikely]] tags and see if that affects the running time. This is optimization option G above.
 
 ===============================================================================================
 
-Person 4 - The Pogo Stick
+XPerson 4 - The Pogo Stick
 
-It is your job to do profile guided optimization (PGO), perfing, and LTO.
+XIt is your job to do profile guided optimization (PGO), perfing, and LTO.
 
-PGO:
+XPGO:
 
-1. Compile the code with \g++ -O3 -std=c++26 -fprofile-generate main.cc 
-2. Run the code extensively and repeatedly, including using all tests made by The Tester so you have full code coverage. This will save profiling data to disk.
-3. Compile the code again this time with \g++ -O3 -std=c++26 -fprofile-use main.cc. When you compile it with -fprofile-use, it will use the profile data to optimize your code
-4. Hand this to the Instrumenter to time (it is Optimization option E above)
+X1. Compile the code with \g++ -O3 -std=c++26 -fprofile-generate main.cc 
+X2. Run the code extensively and repeatedly, including using all tests made by The Tester so you have full code coverage. This will save profiling data to disk.
+X3. Compile the code again this time with \g++ -O3 -std=c++26 -fprofile-use main.cc. When you compile it with -fprofile-use, it will use the profile data to optimize your code
+X4. Hand this to the Instrumenter to time (it is Optimization option E above)
 
-Perfing:
+XPerfing:
 
-1. Compile the code with: \g++ -O3 -g -fno-omit-frame-pointer -std=c++26 main.cc
-2. Run the code with: perf record -g a.out and run through all the tests and such
-3. Put the perf report into a text file with: perf report --stdio > perf_report.txt
-4. View perf_report.txt and see which functions are calling which functions and what percentage of time is spent in each function
-5. Write up things you find interesting about this and send it to The Instrumenter for their report
+X1. Compile the code with: \g++ -O3 -g -fno-omit-frame-pointer -std=c++26 main.cc
+x2. Run the code with: perf record -g a.out and run through all the tests and such
+X3. Put the perf report into a text file with: perf report --stdio > perf_report.txt
+X4. View perf_report.txt and see which functions are calling which functions and what percentage of time is spent in each function
+X5. Write up things you find interesting about this and send it to The Instrumenter for their report
 
-LTO:
+XLTO:
 
-1. Add -flto to your compile flags
-2. Make clean
-3. Make
-4. Rerun the timings and hand it to the Instrumenter (this is Optimization options F and G above)
+X1. Add -flto to your compile flags
+X2. Make clean
+X3. Make
+X4. Rerun the timings and hand it to the Instrumenter (this is Optimization options F and G above)

@@ -6,10 +6,14 @@
 #include <unordered_map>  // IWYU pragma: keep
 #include "SortedCompilation.h" //IWYU pragma: keep
 #include <chrono>
+#include <mutex>
+#include <thread>
 //#include <functional>     // IWYU pragma: keep
 using namespace std;
 using namespace std::chrono;
 using sc = steady_clock;
+
+mutex parse_locker;
 
 //int DEBUG_COUNT = 0;
 
@@ -30,41 +34,50 @@ int main() {
 	//INTL_Comp.compilation.reserve(30800);
 	//INTL_Comp.tags.reserve(186000);
 	
-	parseVideos(videos, outputFile, INTL_Comp);
+	thread first (parseVideos, ref(videos), ref(outputFile), ref(INTL_Comp));
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
-	videos = ifstream ("CAvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+	ifstream videos2("RUvideos.csv");
+	thread second (parseVideos, ref(videos2), ref(outputFile), ref(INTL_Comp));
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
-	videos = ifstream ("GBvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+	ifstream videos3("GBvideos.csv");
+	thread third (parseVideos, ref(videos3), ref(outputFile), ref(INTL_Comp));
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 
-	videos = ifstream ("DEvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+	ifstream videos4("DEvideos.csv");
+	thread fourth (parseVideos, ref(videos4), ref(outputFile), ref(INTL_Comp));
+
+	
+	first.join();
+	second.join();
+	third.join();
+	fourth.join();
 
 	//videos = ifstream ("FRvideos.csv");
 	//parseVideos(videos, outputFile, INTL_Comp);
 
 	videos = ifstream ("INvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+	thread fifth (parseVideos, ref(videos), ref(outputFile), ref(INTL_Comp));
 
-	videos = ifstream ("JPvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+	videos2 = ifstream ("JPvideos.csv");
+	thread sixth (parseVideos, ref(videos2), ref(outputFile), ref(INTL_Comp));
 
-	videos = ifstream ("KRvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+	videos3 = ifstream ("KRvideos.csv");
+	thread seventh (parseVideos, ref(videos3), ref(outputFile), ref(INTL_Comp));
 
-	videos = ifstream ("MXvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+	videos4 = ifstream ("MXvideos.csv");
+	thread eighth (parseVideos, ref(videos4), ref(outputFile), ref(INTL_Comp));
 
-	videos = ifstream ("RUvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
+	
+	fifth.join();
+	sixth.join();
+	seventh.join();
+	eighth.join();
 
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
@@ -187,7 +200,9 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 			}
 			else if (!isInQuote && c == ',') [[unlikely]] {
 				if (currTag != "") {
+					//parse_locker.lock();
 					currTagList.push_back(currTag);
+					//parse_locker.unlock();
 					currTag = "";
 				}
 				commaCount++;
@@ -208,11 +223,11 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 				currPubTime += c;
 			}
 			else if (commaCount == 6) [[likely]] {
-				if (!isInQuote && c == '|') {
+				if (!isInQuote && c == '|') [[unlikely]] {
 					currTagList.push_back(currTag);
 					currTag = "";
 				}
-				else {
+				else [[likely]] {
 					currTag += c;
 				}
 			}
@@ -242,7 +257,9 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		//cerr << ++DEBUG_COUNT << endl;
 		currTrendDate = string() + currTrendDate.at(0) + currTrendDate.at(1) + currTrendDate.at(6) + currTrendDate.at(7) + currTrendDate.at(3) + currTrendDate.at(4);
 		Video tempVideo(currTitle, currChannel, currPubTime, currID, stoi(currTrendDate), stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
+		parse_locker.lock();
 		comp.insertVideo(tempVideo, currTitle, currTagList);
+		parse_locker.unlock();
 	}
 	long endTime = clock();
 	cerr << endTime - startTime << " microseconds" << endl;
