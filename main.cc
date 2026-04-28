@@ -6,6 +6,7 @@
 #include <unordered_map>  // IWYU pragma: keep
 #include "SortedCompilation.h" //IWYU pragma: keep
 #include <chrono>
+#include <unistd.h>
 //#include <functional>     // IWYU pragma: keep
 using namespace std;
 using namespace std::chrono;
@@ -19,8 +20,11 @@ string printVideoData(const Video& video);
 //void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
 
 int main() {
+	pid_t layer1 = fork();
+	if (layer1) 
+	pid_t layer2 = fork();
+	pid_t layer3 = fork();
 	auto start = sc::now();
-	ifstream videos("USvideos.csv");
 	ofstream outputFile("compiledVideos.txt");
 
 	//unordered_map<string, Video> allVideos;
@@ -30,6 +34,7 @@ int main() {
 	//INTL_Comp.compilation.reserve(30800);
 	//INTL_Comp.tags.reserve(186000);
 	
+	ifstream videos("USvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
@@ -41,7 +46,7 @@ int main() {
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
-	videos = ifstream ("GBvideos.csv");
+	videos = ifstream ("RUvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
 	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 
@@ -61,9 +66,6 @@ int main() {
 	parseVideos(videos, outputFile, INTL_Comp);
 
 	videos = ifstream ("MXvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-
-	videos = ifstream ("RUvideos.csv");
 	parseVideos(videos, outputFile, INTL_Comp);
 
 	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
@@ -208,11 +210,11 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 				currPubTime += c;
 			}
 			else if (commaCount == 6) [[likely]] {
-				if (!isInQuote && c == '|') {
+				if (!isInQuote && c == '|') [[unlikely]] {
 					currTagList.push_back(currTag);
 					currTag = "";
 				}
-				else {
+				else [[likely]] {
 					currTag += c;
 				}
 			}
