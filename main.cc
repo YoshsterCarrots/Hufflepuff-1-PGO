@@ -7,10 +7,13 @@
 #include "SortedCompilation.h" //IWYU pragma: keep
 #include <chrono>
 #include <unistd.h>
+#include <mutex>
 //#include <functional>     // IWYU pragma: keep
 using namespace std;
 using namespace std::chrono;
 using sc = steady_clock;
+
+mutex parselock;
 
 //int DEBUG_COUNT = 0;
 
@@ -19,11 +22,10 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
 string printVideoData(const Video& video);
 //void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
 
+int forkCount = 0;
+
 int main() {
-	pid_t layer1 = fork();
-	if (layer1) 
-	pid_t layer2 = fork();
-	pid_t layer3 = fork();
+
 	auto start = sc::now();
 	ofstream outputFile("compiledVideos.txt");
 
@@ -31,104 +33,135 @@ int main() {
 	//unordered_map<string, int> allTags;
 
 	Compilation INTL_Comp(INTERNATIONAL);
-	//INTL_Comp.compilation.reserve(30800);
-	//INTL_Comp.tags.reserve(186000);
-	
-	ifstream videos("USvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
-	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
-	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+	INTL_Comp.compilation.reserve(146000);
+	INTL_Comp.tags.reserve(300000);
 
-	//videos = ifstream ("CAvideos.csv");
-	//parseVideos(videos, outputFile, INTL_Comp);
-	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
-	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
-	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
+	pid_t layer1 = fork();
+	cerr << "I AM FORK layer1 WITH PID " << layer1 << endl;
+	pid_t layer2 = fork();
+	cerr << "I AM FORK layer2 WITH PID " << layer1 << endl;
+	pid_t layer3 = fork();
+	cerr << "I AM FORK layer3 WITH PID " << layer1 << endl;
 
-	videos = ifstream ("RUvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-	//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
-
-	videos = ifstream ("DEvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-
-	//videos = ifstream ("FRvideos.csv");
-	//parseVideos(videos, outputFile, INTL_Comp);
-
-	videos = ifstream ("INvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-
-	videos = ifstream ("JPvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-
-	videos = ifstream ("KRvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-
-	videos = ifstream ("MXvideos.csv");
-	parseVideos(videos, outputFile, INTL_Comp);
-
-	//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
-	//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
-	auto parse = sc::now();
-	cerr << "Parsing time: " << (duration<double>(parse - start)).count() << endl;
-	
-	SortedCompilation Full_Comp(INTL_Comp.compilation, INTL_Comp.tags);
-	
-	/*
-	outputFile << "Most Views:" << endl << endl;
-	printTop100(Full_Comp, outputFile, viewsCompare);
-	outputFile << endl << "Most Likes:" << endl << endl;
-	printTop100(Full_Comp, outputFile, likesCompare);
-	outputFile << endl << "Most Dislikes:" << endl << endl;
-	printTop100(Full_Comp, outputFile, dislikesCompare);
-	*/
-	
-	sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), viewsCompare);
-	cerr << "Most Views:" << endl << endl;
-	outputFile << "Most Views:" << endl << endl;
-	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
-		const Video& vid = Full_Comp.sortedVideos.at(i);
-		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.views << " Views" << endl;
-		outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+	if (layer1) {
+		if (layer2) {
+			if (layer3) {
+				cerr << "|X|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< I AM PID " << layer3 << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|X|" << endl;
+				ifstream videos("USvideos.csv");
+				parseVideos(videos, outputFile, INTL_Comp);
+			}
+			else {
+				cerr << "|X|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< I AM PID " << layer3 << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|X|" << endl;
+				ifstream videos1("RUvideos.csv");
+				parseVideos(videos1, outputFile, INTL_Comp);
+			}
+		}
+		else {
+			if (layer3) {
+				cerr << "|X|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< I AM PID " << layer3 << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|X|" << endl;
+				ifstream videos2("GBvideos.csv");
+				parseVideos(videos2, outputFile, INTL_Comp);
+			}
+			else {
+				cerr << "|X|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< I AM PID " << layer3 << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|X|" << endl;
+				ifstream videos3("DEvideos.csv");
+				parseVideos(videos3, outputFile, INTL_Comp);
+			}
+		}
 	}
-	cerr << endl;
-	outputFile << endl;
+	else if (!layer1) {
+		if (layer2) {
+			if (layer3) {
+				cerr << "|X|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< I AM PID " << layer3 << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|X|" << endl;
+				ifstream videos4("INvideos.csv");
+				parseVideos(videos4, outputFile, INTL_Comp);
+			}
+			else {
+				cerr << "|X|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< I AM PID " << layer3 << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|X|" << endl;
+				ifstream videos5("JPvideos.csv");
+				parseVideos(videos5, outputFile, INTL_Comp);
+			}
+		} else {
+			if (layer3) {
+				cerr << "|X|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< I AM PID " << layer3 << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|X|" << endl;
+				ifstream videos6("KRvideos.csv");
+				parseVideos(videos6, outputFile, INTL_Comp);
+			}
+			else {
+				cerr << "|X|<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< I AM PID " << layer3 << " >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>|X|" << endl;
+				ifstream videos7("MXvideos.csv");
+				parseVideos(videos7, outputFile, INTL_Comp);
+			}
+		}
+	} else { cerr << "you fucked up" << endl; }
 
-	sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), likesCompare);
-	cerr << "Most Likes:" << endl << endl;
-	outputFile << "Most Likes:" << endl << endl;
-	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
-		const Video& vid = Full_Comp.sortedVideos.at(i);
-		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.likes << " Likes" << endl;
-		outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+
+
+	if (!layer1 && !layer2 && !layer3) {
+		while (forkCount != 8) {}
+		auto parse = sc::now();
+		cerr << "Parsing time: " << (duration<double>(parse - start)).count() << endl;
+
+		SortedCompilation Full_Comp(INTL_Comp.compilation, INTL_Comp.tags);
+
+		/*
+		   outputFile << "Most Views:" << endl << endl;
+		   printTop100(Full_Comp, outputFile, viewsCompare);
+		   outputFile << endl << "Most Likes:" << endl << endl;
+		   printTop100(Full_Comp, outputFile, likesCompare);
+		   outputFile << endl << "Most Dislikes:" << endl << endl;
+		   printTop100(Full_Comp, outputFile, dislikesCompare);
+		   */
+
+		sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), viewsCompare);
+		cerr << "Most Views:" << endl << endl;
+		outputFile << "Most Views:" << endl << endl;
+		for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+			const Video& vid = Full_Comp.sortedVideos.at(i);
+			cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.views << " Views" << endl;
+			outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+		}
+		cerr << endl;
+		outputFile << endl;
+
+		sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), likesCompare);
+		cerr << "Most Likes:" << endl << endl;
+		outputFile << "Most Likes:" << endl << endl;
+		for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+			const Video& vid = Full_Comp.sortedVideos.at(i);
+			cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.likes << " Likes" << endl;
+			outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+		}
+		cerr << endl;
+		outputFile << endl;
+
+		sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), dislikesCompare);
+		cerr << "Most Dislikes:" << endl << endl;
+		outputFile << "Most Dislikes:" << endl << endl;
+		for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
+			const Video& vid = Full_Comp.sortedVideos.at(i);
+			cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.dislikes << " Dislikes" << endl;
+			outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+		}
+		cerr << endl;
+		outputFile << endl;
+
+		cerr << "Top Tags: " << endl << endl;
+		outputFile << "Top Tags: " << endl << endl;
+		for (int i = 0; i < 100 && i < Full_Comp.sortedTags.size(); i++) {
+			const pair<string, int>& tag = Full_Comp.sortedTags.at(i);
+			cerr << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
+			outputFile << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
+		}
+
+		outputFile.close();
+
+		auto end = sc::now();
+		cerr << "Full time: " << (duration<double>(end - start)).count() << endl;
 	}
-	cerr << endl;
-	outputFile << endl;
-
-	sort(Full_Comp.sortedVideos.begin(), Full_Comp.sortedVideos.end(), dislikesCompare);
-	cerr << "Most Dislikes:" << endl << endl;
-	outputFile << "Most Dislikes:" << endl << endl;
-	for (int i = 0; i < 100 && i < Full_Comp.sortedVideos.size(); i++) {
-		const Video& vid = Full_Comp.sortedVideos.at(i);
-		cerr << i + 1 << ". " << vid.title << " | " << vid.channel << "\n      " << vid.dislikes << " Dislikes" << endl;
-		outputFile << i + 1 << ". " << printVideoData(vid) << endl;
+	else {
+		forkCount++;
 	}
-	cerr << endl;
-	outputFile << endl;
-
-	cerr << "Top Tags: " << endl << endl;
-	outputFile << "Top Tags: " << endl << endl;
-	for (int i = 0; i < 100 && i < Full_Comp.sortedTags.size(); i++) {
-		const pair<string, int>& tag = Full_Comp.sortedTags.at(i);
-		cerr << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
-		outputFile << i + 1 << ". " << tag.first << " | " << tag.second << " Appearances" << endl;
-	}
-
-	outputFile.close();
-
-	auto end = sc::now();
-	cerr << "Full time: " << (duration<double>(end - start)).count() << endl;
 }
 
 
@@ -233,18 +266,20 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		}
 		//char titleFirstLetter = tolower(currTitle.at(0));
 		/*
-		outputFile << titleFirstLetter << ' ' << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
-		for (const string& s : currTagList) {
-			outputFile << s << '|' ;
-		}
-		outputFile << ' ' << stoi(currViews) << ' ' << stoi(currLikes) << ' ' << stoi(currDislikes) << ' ' << stoi(currCommCount);
-		outputFile << '\n';
-		*/
+		   outputFile << titleFirstLetter << ' ' << currID << ' ' << currTrendDate << ' ' << currTitle << ' ' << currChannel << ' ' << currPubTime << ' ';
+		   for (const string& s : currTagList) {
+		   outputFile << s << '|' ;
+		   }
+		   outputFile << ' ' << stoi(currViews) << ' ' << stoi(currLikes) << ' ' << stoi(currDislikes) << ' ' << stoi(currCommCount);
+		   outputFile << '\n';
+		   */
 
 		//cerr << ++DEBUG_COUNT << endl;
 		currTrendDate = string() + currTrendDate.at(0) + currTrendDate.at(1) + currTrendDate.at(6) + currTrendDate.at(7) + currTrendDate.at(3) + currTrendDate.at(4);
 		Video tempVideo(currTitle, currChannel, currPubTime, currID, stoi(currTrendDate), stoi(currViews), stoi(currLikes), stoi(currDislikes), stoi(currCommCount));
+		parselock.lock();
 		comp.insertVideo(tempVideo, currTitle, currTagList);
+		parselock.unlock();
 	}
 	long endTime = clock();
 	cerr << endTime - startTime << " microseconds" << endl;
@@ -254,10 +289,10 @@ string printVideoData(const Video& video) {
 	return video.title + " | " + video.channel + "\n      Views: " + to_string(video.views) + " | Likes: " + to_string(video.likes) + " | Dislikes: " + to_string(video.dislikes) + " | Comments: " + to_string(video.comments) + "\n      Upload Date: " + video.publishDate +  + " | Most Recent Trending Date: " + to_string(video.trendingDate) + " | Times Trending: " + to_string(video.timesTrending) + "\n      URL: https://www.youtube.com/watch?v=" + video.videoID;
 }
 /*
-void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func) {	
-	sort(comp.sortedVideos.begin(), comp.sortedVideos.end(), viewsCompare);
-	for (int i = 0; i < 100 && i < comp.sortedVideos.size(); i++) {
-		output << i + 1 << ". " << printVideoData(comp.sortedVideos.at(i)) << endl;
-	}
-}
-*/
+   void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func) {	
+   sort(comp.sortedVideos.begin(), comp.sortedVideos.end(), viewsCompare);
+   for (int i = 0; i < 100 && i < comp.sortedVideos.size(); i++) {
+   output << i + 1 << ". " << printVideoData(comp.sortedVideos.at(i)) << endl;
+   }
+   }
+   */
