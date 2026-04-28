@@ -14,7 +14,7 @@ using sc = steady_clock;
 
 //int DEBUG_COUNT = 0;
 
-void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp);
+void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp, int parseNum = 0);
 
 string printVideoData(const Video& video);
 //void printTop100(SortedCompilation& comp, ofstream& output, const function<bool(const Video&, const Video&)>& func);
@@ -35,8 +35,8 @@ int main() {
 	{
 		#pragma omp section 
 		{
-			videos = ifstream("USvideos.csv");
-			parseVideos(videos, outputFile, INTL_Comp);
+			videos = ifstream ("USvideos.csv");
+			parseVideos(videos, outputFile, INTL_Comp, 1);
 			//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 			//cerr << "Video map size: " << INTL_Comp.compilation.size() << endl;
 			//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
@@ -48,38 +48,38 @@ int main() {
 			//cerr << "Tag map size: " << INTL_Comp.tags.size() << endl;
 
 			videos = ifstream ("GBvideos.csv");
-			parseVideos(videos, outputFile, INTL_Comp);
+			parseVideos(videos, outputFile, INTL_Comp, 2);
 			//INTL_Comp.compile(INTL_Comp.compilation, INTL_Comp.tags);
 		}
 
 		#pragma omp section 
 		{
 			videos = ifstream ("DEvideos.csv");
-			parseVideos(videos, outputFile, INTL_Comp);
+			parseVideos(videos, outputFile, INTL_Comp, 3);
 
 			//videos = ifstream ("FRvideos.csv");
 			//parseVideos(videos, outputFile, INTL_Comp);
 
 			videos = ifstream ("INvideos.csv");
-			parseVideos(videos, outputFile, INTL_Comp);
+			parseVideos(videos, outputFile, INTL_Comp, 4);
 		}
 
 		#pragma omp section 
 		{
 			videos = ifstream ("JPvideos.csv");
-			parseVideos(videos, outputFile, INTL_Comp);
+			parseVideos(videos, outputFile, INTL_Comp, 5);
 
 			videos = ifstream ("KRvideos.csv");
-			parseVideos(videos, outputFile, INTL_Comp);
+			parseVideos(videos, outputFile, INTL_Comp, 6);
 		}
 
 		#pragma omp section 
 		{
 			videos = ifstream ("MXvideos.csv");
-			parseVideos(videos, outputFile, INTL_Comp);
+			parseVideos(videos, outputFile, INTL_Comp, 7);
 
 			videos = ifstream ("RUvideos.csv");
-			parseVideos(videos, outputFile, INTL_Comp);
+			parseVideos(videos, outputFile, INTL_Comp, 8);
 		}
 	}
 
@@ -158,8 +158,9 @@ int main() {
 //   so be sure to account for that with isInQuote.
 
 
-void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
+void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp, int parseNum) {
 	string currLine;
+	//int DEBUG_COUNT_MP = 0;
 	//DEBUG_COUNT = 0;
 
 	getline(videos, currLine);
@@ -264,8 +265,10 @@ void parseVideos(ifstream& videos, ofstream& outputFile, Compilation& comp) {
 		{
 			comp.insertVideo(tempVideo, currTitle, currTagList);
 		}
+		//DEBUG_COUNT_MP += currTagList.size();
 	}
 	long endTime = clock();
+	//cerr << parseNum << ": " << endTime - startTime << " microseconds and " << DEBUG_COUNT_MP << " tags" << endl;
 	cerr << endTime - startTime << " microseconds" << endl;
 }
 
